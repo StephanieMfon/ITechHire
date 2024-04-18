@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.toggle {
+  width: 20px;
+  height: 20px;
+}
+
+.toggle:hover {
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+}
+.label {
+  color: #344054;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #c0cac0;
+  opacity: 100;
+  background: #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.container .input input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: #939392;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.container input::placeholder {
+  color: #939392;
+}
+
+@media screen and (max-width: 750px) {
+  .input {
+    padding: 10px;
+  }
+}

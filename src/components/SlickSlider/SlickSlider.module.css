@@ -1,0 +1,43 @@
+.slider_container {
+  display: inline-block;
+}
+
+.slick_slider {
+  margin-top: 5rem;
+}
+
+.slick_track {
+  padding: 4rem 0rem;
+}
+
+.slick_slide > div {
+  padding: 0 20px;
+}
+
+.slick_dots {
+  bottom: 0 !important;
+}
+.comment {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.c_content {
+  height: 200px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+}
+.c_content span {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  gap: 1rem;
+}
+.c_avatar {
+}

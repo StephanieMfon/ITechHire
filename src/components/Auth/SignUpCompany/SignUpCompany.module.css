@@ -1,0 +1,115 @@
+.hero_container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f3f4f8;
+}
+
+/* Hero left */
+.hero_left {
+  flex: 0.4;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+.image_row {
+  display: flex;
+  gap: 2rem;
+}
+.person_pill {
+  height: 35rem;
+  width: 24rem;
+  border-radius: 999px;
+}
+.person_pill_bg {
+  border-radius: 999px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.person_pill_bg > img {
+  width: 100%;
+  object-fit: contain;
+}
+/* 
+
+
+
+
+/* Hero right */
+.hero_right {
+  overflow-y: scroll;
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+/* Form Section */
+.form {
+  gap: 2.1rem;
+  display: flex;
+  flex-direction: column;
+  /* background-color: yellow; */
+  width: 30rem;
+}
+
+.inputs {
+  gap: 1.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero_container select {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #939392;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #c0cac0;
+  opacity: 100;
+  background: #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 1024px) {
+  .hero_wrapper {
+    height: max-content;
+  }
+
+  .hero_wrapper .container {
+    padding-top: 5rem;
+  }
+  .hero_container {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding-top: 3rem;
+  }
+  .hero_arrow {
+    display: none;
+  }
+  .hero_right {
+    flex: 1;
+    align-items: center;
+  }
+  .hero_title {
+    align-items: center;
+    font-size: 2.2rem;
+  }
+  .hero_des {
+    font-size: 1.2rem;
+    width: 80%;
+    text-align: center;
+  }
+}

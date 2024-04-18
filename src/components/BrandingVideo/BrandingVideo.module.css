@@ -1,0 +1,23 @@
+.bv_container .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.branding_video {
+  width: 95%;
+  border-radius: 4rem;
+  margin-top: -10rem;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .branding_video {
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .branding_video {
+    border-radius: 2rem;
+  }
+}

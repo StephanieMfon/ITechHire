@@ -1,0 +1,17 @@
+.t_wrapper .container {
+  padding-top: 13rem;
+}
+.t_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.t_head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  max-width: 50rem;
+}
