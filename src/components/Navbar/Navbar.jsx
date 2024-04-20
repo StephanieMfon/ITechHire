@@ -25,18 +25,17 @@ const Navbar = () => {
       {/* Desktop Version */}
       <div className="container">
         <div className={styles.nav_container}>
-          {/* Left side */}
           <div className={styles.nav_logo}>
-            <span>STEPHKEEPSCODE</span>
+            <span>ITECHHIRE</span>
           </div>
 
           {/* Right side */}
           <div className={styles.nav_right}>
             <div className={styles.nav_menu}>
-              <span>What we do</span>
-              <span>How it works</span>
-              <span>Who we invest</span>
-              <span>Testimonials</span>
+              <span>Platform</span>
+              <span>Resources</span>
+              <span>Country Explorer</span>
+              <span>About us</span>
             </div>
             <Link href={"/onboarding/login"} className={styles.fund_button}>
               Log in
@@ -48,7 +47,7 @@ const Navbar = () => {
       {/* Mobile/tab version */}
       <div className={styles.nav_mobile_container}>
         {/* Logo */}
-        <span>STEPHKEEPSCODE</span>
+        <span>ITECHHIRE</span>
 
         {/* Menu Icon */}
 

@@ -96,20 +96,16 @@ export const hitFeatures = [
 
 export const whoWeInvest = [
   {
-    title: "Digital Business Model",
-    des: "Digital business model e.g. SaaS, subscription, D2C, apps",
+    title: "HR Management",
+    des: "Manage your team with an HR system they’ll (seriously) love.",
   },
   {
-    title: "Revenue Generating",
-    des: "Revenue generating for 6 months, > $1k in monthly recurring revenue",
+    title: "Contractor Management",
+    des: "Pay and manage contractors and freelancers around the world.",
   },
   {
-    title: "Support Growth",
-    des: "Industry expertise: Fintech, Health, Deep tech, B2B software",
-  },
-  {
-    title: "International Expansion",
-    des: "Registered in Australia and Singapore (initially) with appetite for international expansion",
+    title: "SRemote Talent ",
+    des: "Post jobs and find qualified candidates from anywhere in the world.",
   },
 ];
 
@@ -188,13 +184,13 @@ export const dummyData = [
   },
   {
     id: 2,
-    time: "5 minutes",
-    location: "Africa + 2 more",
+    time: "7 hours ago",
+    location: "United States",
     companyPicture:
-      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2F3f0b474f-cd42-4f1d-b8ae-9e9e084e281ecompany_logo.png&w=96&q=75",
-    companyName: "Axon",
+      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2Fd064740d-cf4f-44ea-a4dc-dba90ab0658acompany_logo.jpg&w=96&q=75",
+    companyName: "Reddit",
     amount: "200k",
-    jobTitle: "Technical Support Specialist - AMER EAST/EMEA",
+    jobTitle: "Senior Data Scientist - SMB Growth",
     type: "remote",
     commitment: "Full Time",
     href: "https://boards.greenhouse.io/flocksafety/jobs/7275955002?source=remote.com&utm_source=remote.com&ref=remote.com",
@@ -203,13 +199,13 @@ export const dummyData = [
   },
   {
     id: 3,
-    time: "5 minutes",
-    location: "Africa + 2 more",
+    time: "3 days",
+    location: "New zealand",
     companyPicture:
-      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2F3f0b474f-cd42-4f1d-b8ae-9e9e084e281ecompany_logo.png&w=96&q=75",
-    companyName: "Snyk",
-    amount: "200k",
-    jobTitle: "Technical Support Specialist - AMER EAST/EMEA",
+      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2Fd4370371-d838-4100-9114-170ee03bcfe8company_logo.jpg&w=96&q=75",
+    companyName: "Zapier",
+    amount: "184k-276k USD",
+    jobTitle: "Technical Support Specialist - NZT-CST",
     type: "remote",
     commitment: "Full Time",
     href: "https://boards.greenhouse.io/flocksafety/jobs/7275955002?source=remote.com&utm_source=remote.com&ref=remote.com",
@@ -218,13 +214,13 @@ export const dummyData = [
   },
   {
     id: 4,
-    time: "5 minutes",
-    location: "Africa + 2 more",
+    time: "19 days",
+    location: "Anywhere",
     companyPicture:
-      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2F3f0b474f-cd42-4f1d-b8ae-9e9e084e281ecompany_logo.png&w=96&q=75",
-    companyName: "Zapier",
+      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2Fa4f92252-bb6f-4a3a-ae36-c21467b1401acompany_logo.jpg&w=96&q=75",
+    companyName: "Canonical",
     amount: "200k",
-    jobTitle: "Technical Support Specialist - AMER EAST/EMEA",
+    jobTitle: "Engineering Manager",
     type: "remote",
     commitment: "Full Time",
 
@@ -234,59 +230,60 @@ export const dummyData = [
   },
   {
     id: 5,
-    time: "5 minutes",
-    location: "Africa + 2 more",
+    time: "30 days",
+    location: "United States",
     companyPicture:
-      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2F3f0b474f-cd42-4f1d-b8ae-9e9e084e281ecompany_logo.png&w=96&q=75",
-    companyName: "Canonical",
-    amount: "200k",
+      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2F008e13c0-caf0-4f63-9730-fbd5d2f5275ecompany_logo.jpg&w=96&q=75",
+    companyName: "Seamless.AI",
+    amount: "105K-140K USD",
     type: "remote",
     href: "https://boards.greenhouse.io/flocksafety/jobs/7275955002?source=remote.com&utm_source=remote.com&ref=remote.com",
-    jobTitle: "Technical Support Specialist - AMER EAST/EMEA",
+    jobTitle: "Lead Product Designer - Remote US",
     commitment: "Full Time",
     details:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, alias accusantium architecto aperiam ducimus quisquam officia qui quae et    modi, quibusdam laborum facere! Aliquam architecto fugiat mollitia    quisquam at. Quibusdam, tempore nulla obcaecati accusantium iure debitis    nemo cumque sapiente labore sunt cum consequatur non facere nostrum qui,    nesciunt, animi voluptatibus magni. Quas nesciunt a excepturi nemo nisi.    Debitis eum molestiae, consequuntur necessitatibus possimus cumque autem    repellendus voluptate, quas minima quos laboriosam enim aliquid,    quisquam neque aliquam incidunt rerum iure consequatur labore quidem    ducimus delectus excepturi. Consectetur, aliquam fugit fugiat accusamus error qui unde sit et autem, quas eligendi. Pariatur repellendus fuga    quibusdam nostrum soluta delectus ex velit deleniti cumque facere, eos    aliquid incidunt sunt adipisci a magnam non suscipit accusamus    distinctio tempore ipsa numquam, eius veritatis ab. Sequi officia sed    obcaecati ipsum, pariatur illum aliquam reprehenderit aut sint natus    earum voluptate itaque nostrum id quibusdam, fugiat enim a, fuga    laudantium veniam similique beatae inventore! Possimus, nisi? Eius, consectetur. Voluptates porro earum dignissimos totam incidunt sapiente    quo, tempore, deserunt quae optio eaque itaque repellat nulla eveniet    nobis animi cupiditate exercitationem asperiores aperiam voluptate?    Omnis ea voluptas accusantium consectetur id, qui quidem quod veniam    magni ab quia est numquam? Deleniti aliquam qui, mollitia veritatis    fugiat cupiditate consectetur. Nostrum hic laboriosam modi amet cumque    inventore dolorem minus fuga eos quidem quos beatae aspernatur rem    placeat maiores, rerum iste minima velit, pariatur dolore expedita    dolores in explicabo nulla! Earum voluptates dolore sed dolorem. Nisi,    quod. Nesciunt, voluptate iste incidunt enim provident cum, explicabo    eius consequuntur cumque atque distinctio id? Nam enim natus totam.",
   },
   {
     id: 6,
-    time: "5 minutes",
-    location: "Africa + 2 more",
+    time: "11 days",
+    location: "United States",
     companyPicture:
-      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2F3f0b474f-cd42-4f1d-b8ae-9e9e084e281ecompany_logo.png&w=96&q=75",
-    companyName: "Zapier",
+      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2Fb2a7d6d7-d9a6-415a-8321-08f8e4ecb211company_logo.jpg&w=96&q=75",
+    companyName: "Mozilla",
     amount: "200k",
     type: "remote",
     href: "https://boards.greenhouse.io/flocksafety/jobs/7275955002?source=remote.com&utm_source=remote.com&ref=remote.com",
-    jobTitle: "Technical Support Specialist - AMER EAST/EMEA",
+    jobTitle: "Senior Designer Systems -  Designer",
     commitment: "Full Time",
     details:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, alias accusantium architecto aperiam ducimus quisquam officia qui quae et    modi, quibusdam laborum facere! Aliquam architecto fugiat mollitia    quisquam at. Quibusdam, tempore nulla obcaecati accusantium iure debitis    nemo cumque sapiente labore sunt cum consequatur non facere nostrum qui,    nesciunt, animi voluptatibus magni. Quas nesciunt a excepturi nemo nisi.    Debitis eum molestiae, consequuntur necessitatibus possimus cumque autem    repellendus voluptate, quas minima quos laboriosam enim aliquid,    quisquam neque aliquam incidunt rerum iure consequatur labore quidem    ducimus delectus excepturi. Consectetur, aliquam fugit fugiat accusamus error qui unde sit et autem, quas eligendi. Pariatur repellendus fuga    quibusdam nostrum soluta delectus ex velit deleniti cumque facere, eos    aliquid incidunt sunt adipisci a magnam non suscipit accusamus    distinctio tempore ipsa numquam, eius veritatis ab. Sequi officia sed    obcaecati ipsum, pariatur illum aliquam reprehenderit aut sint natus    earum voluptate itaque nostrum id quibusdam, fugiat enim a, fuga    laudantium veniam similique beatae inventore! Possimus, nisi? Eius, consectetur. Voluptates porro earum dignissimos totam incidunt sapiente    quo, tempore, deserunt quae optio eaque itaque repellat nulla eveniet    nobis animi cupiditate exercitationem asperiores aperiam voluptate?    Omnis ea voluptas accusantium consectetur id, qui quidem quod veniam    magni ab quia est numquam? Deleniti aliquam qui, mollitia veritatis    fugiat cupiditate consectetur. Nostrum hic laboriosam modi amet cumque    inventore dolorem minus fuga eos quidem quos beatae aspernatur rem    placeat maiores, rerum iste minima velit, pariatur dolore expedita    dolores in explicabo nulla! Earum voluptates dolore sed dolorem. Nisi,    quod. Nesciunt, voluptate iste incidunt enim provident cum, explicabo    eius consequuntur cumque atque distinctio id? Nam enim natus totam.",
   },
   {
     id: 7,
-    time: "5 minutes",
-    location: "Africa + 2 more",
+    time: "30 days",
+    location: "Argentina",
     companyPicture:
       "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2F3f0b474f-cd42-4f1d-b8ae-9e9e084e281ecompany_logo.png&w=96&q=75",
-    companyName: "Zapier",
+    companyName: "360.org",
     amount: "200k",
     type: "remote",
     href: "https://boards.greenhouse.io/flocksafety/jobs/7275955002?source=remote.com&utm_source=remote.com&ref=remote.com",
-    jobTitle: "Technical Support Specialist - AMER EAST/EMEA",
+    jobTitle: "Design Specialist",
     commitment: "Full Time",
     details:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, alias accusantium architecto aperiam ducimus quisquam officia qui quae et    modi, quibusdam laborum facere! Aliquam architecto fugiat mollitia    quisquam at. Quibusdam, tempore nulla obcaecati accusantium iure debitis    nemo cumque sapiente labore sunt cum consequatur non facere nostrum qui,    nesciunt, animi voluptatibus magni. Quas nesciunt a excepturi nemo nisi.    Debitis eum molestiae, consequuntur necessitatibus possimus cumque autem    repellendus voluptate, quas minima quos laboriosam enim aliquid,    quisquam neque aliquam incidunt rerum iure consequatur labore quidem    ducimus delectus excepturi. Consectetur, aliquam fugit fugiat accusamus error qui unde sit et autem, quas eligendi. Pariatur repellendus fuga    quibusdam nostrum soluta delectus ex velit deleniti cumque facere, eos    aliquid incidunt sunt adipisci a magnam non suscipit accusamus    distinctio tempore ipsa numquam, eius veritatis ab. Sequi officia sed    obcaecati ipsum, pariatur illum aliquam reprehenderit aut sint natus    earum voluptate itaque nostrum id quibusdam, fugiat enim a, fuga    laudantium veniam similique beatae inventore! Possimus, nisi? Eius, consectetur. Voluptates porro earum dignissimos totam incidunt sapiente    quo, tempore, deserunt quae optio eaque itaque repellat nulla eveniet    nobis animi cupiditate exercitationem asperiores aperiam voluptate?    Omnis ea voluptas accusantium consectetur id, qui quidem quod veniam    magni ab quia est numquam? Deleniti aliquam qui, mollitia veritatis    fugiat cupiditate consectetur. Nostrum hic laboriosam modi amet cumque    inventore dolorem minus fuga eos quidem quos beatae aspernatur rem    placeat maiores, rerum iste minima velit, pariatur dolore expedita    dolores in explicabo nulla! Earum voluptates dolore sed dolorem. Nisi,    quod. Nesciunt, voluptate iste incidunt enim provident cum, explicabo    eius consequuntur cumque atque distinctio id? Nam enim natus totam.",
   },
+
   {
     id: 8,
-    time: "5 minutes",
-    location: "Africa + 2 more",
+    time: "13 hours",
+    location: "Canada",
     companyPicture:
-      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2F3f0b474f-cd42-4f1d-b8ae-9e9e084e281ecompany_logo.png&w=96&q=75",
-    companyName: "Zapier",
+      "https://remote.com/jobs/_next/image?url=https%3A%2F%2Fcdn.talent-assets.remote.com%2Fcompany_logos%2Ff6988273-0991-41fa-b7bc-62ff20dc25d2company_logo.jpg&w=96&q=75",
+    companyName: "Cloudflare",
     amount: "200k",
     href: "https://boards.greenhouse.io/flocksafety/jobs/7275955002?source=remote.com&utm_source=remote.com&ref=remote.com",
-    jobTitle: "Technical Support Specialist - AMER EAST/EMEA",
+    jobTitle: "Commercial Sales Leader -Canada",
     type: "remote",
     commitment: "Full Time",
     details:

@@ -50,17 +50,22 @@
 .nav_menu span {
   cursor: pointer;
 }
-
+.nav_menu span:hover {
+  color: var(--secondary-color);
+}
 .fund_button {
   color: var(--dark-bg);
   background-color: var(--third-color);
   padding: 1rem 1.6rem;
   font-size: 1rem;
   text-transform: capitalize;
+  border: 2px solid var(--third-color);
   border-radius: 999px;
   cursor: pointer;
 }
-
+.fund_button:hover {
+  background: white;
+}
 /* Mobile/tab version */
 
 .nav_mobile_container {

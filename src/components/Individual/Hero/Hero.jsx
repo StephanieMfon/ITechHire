@@ -4,7 +4,12 @@ import { FiSearch } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 import { titleVariants } from "../../../utils/animations";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "../../../utils/ROUTES";
+
 const IndividualHero = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.hero_wrapper}>
       <div className="container">
@@ -22,7 +27,10 @@ const IndividualHero = () => {
             companies.
           </span>
 
-          <button className={styles.button}>
+          <button
+            onClick={() => router.push(ROUTES.INDIVIDUAL.ALL_JOBS)}
+            className={styles.button}
+          >
             <FiSearch />
 
             <span>Browse Jobs</span>

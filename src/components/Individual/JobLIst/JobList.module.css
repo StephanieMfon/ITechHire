@@ -1,11 +1,13 @@
 .j_wrapper {
   background-color: #f3f4f8;
+  /* min-height: 100vh; */
 }
 
 .j_items_container {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  /* min-height: 100vh; */
 }
 
 .title_section {
@@ -47,6 +49,7 @@
 .j_top .time {
   font-size: 16px;
   color: grey;
+  font-weight: 300;
 }
 
 .j_top_place {
@@ -77,9 +80,11 @@
   gap: 1.6rem;
   align-items: center;
 }
+
 .j_bottom_left > img {
   max-width: 48px;
 }
+
 .j_bottom_left > div,
 .right_section {
   display: flex;
@@ -108,4 +113,50 @@
 .details > span {
   font-weight: 300;
   font-size: 1.1rem;
+}
+.company_picture {
+  border-radius: 999px;
+}
+@media (max-width: 750px) {
+  .j_top div {
+    gap: 0.2rem;
+  }
+  .j_bottom {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 20px 15px 20px 25px;
+  }
+  .title_section {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    margin: 20px 17px;
+  }
+  .title_section .title {
+    margin-block: 0.6rem;
+  }
+  .j_item {
+    padding: 10px;
+
+    gap: 0.3rem;
+  }
+  .job_title,
+  .amount {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #0f1419;
+  }
+  .details {
+    flex-wrap: wrap;
+  }
+  .j_items_container {
+    margin: 0 15px;
+  }
+}
+
+.itemSeparator {
+  height: 8px; /* Adjust the height as needed */
+  margin-bottom: 10px; /* Adjust the bottom margin as needed */
+  border-radius: 24px;
 }

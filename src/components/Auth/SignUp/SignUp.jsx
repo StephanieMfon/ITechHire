@@ -2,7 +2,7 @@
 
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
-import styles from "./Hero.module.css";
+import styles from "./SignUp.module.css";
 import { motion } from "framer-motion";
 
 import { ROUTES } from "../../../utils/ROUTES";
@@ -52,7 +52,7 @@ const SignUp = () => {
       {/* Right side */}
       <div className={styles.hero_right}>
         <span className={styles.title}>
-          How would you like to use STEPHKEEPSCODE
+          How would you like to use ITechHire
         </span>
         <div className={styles.scene_buttons}>
           <button
@@ -61,7 +61,7 @@ const SignUp = () => {
             }`}
             onClick={() => setScene("signInIndividual")}
           >
-            Sign In
+            I'm a company
           </button>
 
           <button
@@ -70,7 +70,7 @@ const SignUp = () => {
             }`}
             onClick={() => setScene("signInCompany")}
           >
-            Create Account
+            I'm an individual
           </button>
         </div>
 

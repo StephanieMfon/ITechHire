@@ -25,7 +25,7 @@ const SignUpIndividualPage = () => {
 
   const onSubmit = async (data) => {
     const response = await AuthenticationRepository.signup(data);
-    // console.log(response);
+    console.log(response);
 
     if (response.response?.status === 400) {
       openNotification({

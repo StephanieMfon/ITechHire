@@ -43,7 +43,7 @@ const EmailBox = ({ variant = "default" }) => {
         viewport={{ once: true }}
         className={styles.get_funded}
       >
-        Get Funded
+        Get Started
       </motion.div>
     </motion.div>
   );

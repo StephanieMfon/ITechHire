@@ -35,6 +35,11 @@
   text-align: center;
   box-shadow: var(--shadow);
   border-radius: 2rem;
+  border: 1px solid white;
+  transition: border 0.5s ease-in-out;
+}
+.wwd_block:hover {
+  border: 1px solid var(--secondary-color);
 }
 .block_features {
   margin-top: 1rem;

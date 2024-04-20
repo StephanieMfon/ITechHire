@@ -9,7 +9,7 @@ import { TbSmartHome } from "react-icons/tb";
 import { LuMapPin } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
 export default function SingleJob(id) {
-  const single_item = dummyData.filter((data) => data.id === 5);
+  const single_item = dummyData.filter((data) => data.id === Number(id.id));
 
   return (
     <div className={styles.sj_wrapper}>
@@ -24,7 +24,10 @@ export default function SingleJob(id) {
                   <img src={item.companyPicture} alt={item.companyName} />
 
                   <div className={styles.top_right}>
-                    <FaRegStar className={styles.star_icon} />
+                    <FaRegStar
+                      className={styles.star_icon}
+                      style={{ color: "#808080" }}
+                    />
                     <Link className={styles.apply_button} href={item.href}>
                       Apply
                     </Link>

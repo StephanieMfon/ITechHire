@@ -2,7 +2,7 @@
 
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
-import styles from "./Hero.module.css";
+import styles from "./Login.module.css";
 import { motion } from "framer-motion";
 
 import { ROUTES } from "../../../utils/ROUTES";

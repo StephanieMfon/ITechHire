@@ -92,13 +92,13 @@ const Hero = () => {
           {/* Right side */}
           <div className={styles.hero_right}>
             <div className={styles.hero_title}>
-              <span>Redifine How</span>
-              <span>You Grow your</span>
-              <span>Digital Bussiness</span>
+              <span>The Only Global</span>
+              <span>HR Platform</span>
+              <span>You'll ever need.</span>
             </div>
             <div className={styles.hero_des}>
-              Revenue based funding and execution support designed for early
-              stage founders
+              Run global HR like a local in every country. Approve payroll,
+              manage your team, find qualified candidates
             </div>
 
             <EmailBox />

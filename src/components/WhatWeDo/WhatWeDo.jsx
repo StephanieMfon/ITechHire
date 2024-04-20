@@ -30,8 +30,8 @@ const WhatWeDo = () => {
               variants={titleVariants}
               className="title"
             >
-              Empowering Founders With Non Dilutive Capital And Execution
-              Expertise
+              Empowering Entrepreneurs with Strategic HR Support and Job
+              Opportunities
             </motion.span>
             <motion.span
               initial="offscreen"
@@ -61,8 +61,8 @@ const WhatWeDo = () => {
                 variants={desVariants}
                 className="text"
               >
-                Fund recurring growth expenses e.g. customer acquisition,
-                inventory
+                Facilitating Ongoing Career Expansion: Connecting Talent with
+                Opportunities
               </motion.span>
 
               <div className={styles.block_features}>
@@ -102,8 +102,8 @@ const WhatWeDo = () => {
                 variants={desVariants}
                 className="text"
               >
-                Fund recurring growth expenses e.g. customer acquisition,
-                inventory
+                Facilitating Ongoing Business Expansion: Connecting Company with
+                Talent
               </motion.span>
 
               <div className={styles.block_features}>

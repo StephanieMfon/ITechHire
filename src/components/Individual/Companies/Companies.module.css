@@ -16,7 +16,20 @@
 .title {
   text-align: center;
   font-size: 1.4rem;
+  color: #364452;
 }
 .companies img {
   max-width: 124rem;
+}
+
+@media (max-width: 750px) {
+  .companies {
+    flex-flow: wrap;
+    -webkit-box-pack: center;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
 }

@@ -29,8 +29,8 @@ const WhoWeInvest = () => {
                 variants={titleVariants}
                 className={`title ${styles.title}`}
               >
-                Digital Businesses <br />
-                With Early Traction
+                The Global HR <br />
+                Platform You Deserve
               </motion.span>
             </div>
             {/* Features */}
