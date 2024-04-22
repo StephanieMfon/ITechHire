@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import SignUp from "../../../src/components/Auth/SignUp/SignUp";
 import { ROUTES } from "../../../src/utils/ROUTES";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

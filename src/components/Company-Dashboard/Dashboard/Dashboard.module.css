@@ -1,0 +1,11 @@
+.dash_container {
+  padding: 75px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+}
+.title {
+  font-weight: 600;
+  color: var(--dark-bg);
+  font-size: 2.5rem;
+}

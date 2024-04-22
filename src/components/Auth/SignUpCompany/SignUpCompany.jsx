@@ -54,32 +54,16 @@ const SignUpCompany = ({ handleSubmit, onSubmit, control, errors }) => {
           </h1>
           <div className={styles.inputs}>
             <Controller
-              name="firstname"
+              name="name"
               control={control}
               defaultValue=""
               // rules={{ required: "Please enter your first name!" }}
               render={({ field }) => {
                 return (
                   <Input
-                    id="firstname"
-                    placeholder="First Name"
-                    error={errors.firstname?.message}
-                    field={field}
-                  ></Input>
-                );
-              }}
-            />
-            <Controller
-              name="lastname"
-              control={control}
-              defaultValue=""
-              rules={{ required: "Please enter your last name!" }}
-              render={({ field }) => {
-                return (
-                  <Input
-                    id="lastname"
-                    placeholder="Last Name"
-                    error={errors.lastname?.message}
+                    id="name"
+                    placeholder="Company Name"
+                    error={errors.name?.message}
                     field={field}
                   ></Input>
                 );
@@ -90,16 +74,49 @@ const SignUpCompany = ({ handleSubmit, onSubmit, control, errors }) => {
               name="email"
               control={control}
               defaultValue=""
-              rules={{ required: "Email is required" }}
+              rules={{ required: "Company Email is required" }}
               render={({ field }) => {
                 return (
                   <Input
                     id="email"
                     type="email"
-                    placeholder="Email Address"
+                    placeholder="Company Email"
                     error={errors.email?.message}
                     field={field}
                   ></Input>
+                );
+              }}
+            />
+
+            <Controller
+              control={control}
+              name="logo"
+              // rules={{ required: "Company logo is required" }}
+              render={({ field: { value, onChange, ...field } }) => {
+                return (
+                  <div className={styles.logo_input}>
+                    <label htmlFor="logo">
+                      Upload your Company logo:
+                      <input
+                        {...field}
+                        value={value?.fileName}
+                        // onChange={handleFileChange}
+                        type="file"
+                        id="logo"
+                      />
+                      <span id="imageIndicator">{value?.name}</span>
+                    </label>
+                    {/* {previewImage && (
+                      <img
+                        src={previewImage}
+                        alt="Preview"
+                        className={styles.previewImage}
+                      />
+                    )} */}
+                    {errors.logo && (
+                      <Error>{errors.my_statement.message}</Error>
+                    )}
+                  </div>
                 );
               }}
             />
@@ -131,34 +148,6 @@ const SignUpCompany = ({ handleSubmit, onSubmit, control, errors }) => {
                 );
               }}
             />
-
-            <Controller
-              control={control}
-              name="role"
-              // defaultValue="option1"
-              rules={{ required: "Role is required" }}
-              render={({ field }) => {
-                return (
-                  <>
-                    <select
-                      id="role"
-                      ref={field?.ref}
-                      onChange={(e) =>
-                        field?.onChange({ target: { value: e.target.value } })
-                      }
-                      className={styles.selectInput}
-                    >
-                      <option value="">Role</option>
-                      <option value="mentor">Mentor</option>
-                      <option value="mentee">Mentee</option>
-                    </select>
-                    {errors.marital_status && (
-                      <Error>{errors.marital_status.message}</Error>
-                    )}
-                  </>
-                );
-              }}
-            />
           </div>
           <p className={styles.text}>
             Already have an account?&nbsp;
@@ -172,7 +161,7 @@ const SignUpCompany = ({ handleSubmit, onSubmit, control, errors }) => {
           </p>
 
           <button
-            onClick={() => router.push(ROUTES.INDIVIDUAL.MAIN)}
+            onClick={() => router.push(ROUTES.COMPANY_DASHBOARD.MAIN)}
             className="button"
             type="submit"
           >

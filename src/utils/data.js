@@ -1,3 +1,7 @@
+import { RiHome5Line } from "react-icons/ri";
+import { MdOutlinePlaylistAddCircle } from "react-icons/md";
+import { IoPeopleCircle } from "react-icons/io5";
+
 export const HeroData = [
   {
     src: "hero/person1.jpg",
@@ -288,5 +292,110 @@ export const dummyData = [
     commitment: "Full Time",
     details:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, alias accusantium architecto aperiam ducimus quisquam officia qui quae et    modi, quibusdam laborum facere! Aliquam architecto fugiat mollitia    quisquam at. Quibusdam, tempore nulla obcaecati accusantium iure debitis    nemo cumque sapiente labore sunt cum consequatur non facere nostrum qui,    nesciunt, animi voluptatibus magni. Quas nesciunt a excepturi nemo nisi.    Debitis eum molestiae, consequuntur necessitatibus possimus cumque autem    repellendus voluptate, quas minima quos laboriosam enim aliquid,    quisquam neque aliquam incidunt rerum iure consequatur labore quidem    ducimus delectus excepturi. Consectetur, aliquam fugit fugiat accusamus error qui unde sit et autem, quas eligendi. Pariatur repellendus fuga    quibusdam nostrum soluta delectus ex velit deleniti cumque facere, eos    aliquid incidunt sunt adipisci a magnam non suscipit accusamus    distinctio tempore ipsa numquam, eius veritatis ab. Sequi officia sed    obcaecati ipsum, pariatur illum aliquam reprehenderit aut sint natus    earum voluptate itaque nostrum id quibusdam, fugiat enim a, fuga    laudantium veniam similique beatae inventore! Possimus, nisi? Eius, consectetur. Voluptates porro earum dignissimos totam incidunt sapiente    quo, tempore, deserunt quae optio eaque itaque repellat nulla eveniet    nobis animi cupiditate exercitationem asperiores aperiam voluptate?    Omnis ea voluptas accusantium consectetur id, qui quidem quod veniam    magni ab quia est numquam? Deleniti aliquam qui, mollitia veritatis    fugiat cupiditate consectetur. Nostrum hic laboriosam modi amet cumque    inventore dolorem minus fuga eos quidem quos beatae aspernatur rem    placeat maiores, rerum iste minima velit, pariatur dolore expedita    dolores in explicabo nulla! Earum voluptates dolore sed dolorem. Nisi,    quod. Nesciunt, voluptate iste incidunt enim provident cum, explicabo    eius consequuntur cumque atque distinctio id? Nam enim natus totam.",
+  },
+];
+
+export const SIDE_NAVIGATION_ITEMS = [
+  {
+    name: "Home",
+    route: "/company-dashboard",
+    icon: <RiHome5Line />,
+    activePage: null,
+  },
+  {
+    name: "Job Listings",
+    route: "/company-dashboard/job-listings",
+    activePage: "job-listings",
+
+    icon: <MdOutlinePlaylistAddCircle />,
+  },
+  {
+    name: "Employees",
+    route: "/company-dashboard/employees",
+    icon: <IoPeopleCircle />,
+    activePage: "employees",
+  },
+];
+
+export const tableData = [
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "completed",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "in-progress",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "in-progress",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "in-progress",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "completed",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "in-progress",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDatße: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "in-progress",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "completed",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "completed",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
+  },
+  {
+    title: "Test title",
+    cost: "Test cost",
+    status: "completed",
+    levelOfCompletion: "50 %",
+    startDate: "2024-01-29T09:57:18.261Z",
+    endDate: "2024-01-29T09:57:18.261Z",
   },
 ];

@@ -1,0 +1,52 @@
+/* Summary Card */
+
+.summary {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.summary_card {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 24px;
+  justify-content: space-between;
+  text-wrap: nowrap;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 0 0;
+  border-radius: 12px;
+  border: 1px solid #eaecf0;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
+    0px 1px 3px 0px rgba(16, 24, 40, 0.1);
+}
+.data {
+  gap: 1rem;
+}
+.percentage {
+  color: grey;
+  font-weight: 300;
+}
+.total {
+  font-size: 1.3rem;
+  color: var(--dark-bg);
+  font-weight: 600;
+}
+
+.card_icon span {
+  display: flex;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 6px;
+}
+.icon {
+  color: white;
+  font-size: 25px;
+}
+@media (max-width: 750px) {
+  .summary_card {
+    align-items: center;
+  }
+  .data {
+    align-items: center;
+  }
+}

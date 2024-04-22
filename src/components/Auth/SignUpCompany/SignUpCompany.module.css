@@ -79,6 +79,27 @@
   gap: 12px;
 }
 
+/* .logo_input {
+  border: 1px solid black;
+} */
+.logo_input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #c0cac0;
+  opacity: 100;
+  background: #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo_input {
+  text-wrap: nowrap;
+  text-overflow: hidden;
+  color: #939392;
+  font-weight: 700;
+}
+
 @media (max-width: 1024px) {
   .hero_left {
     display: none;

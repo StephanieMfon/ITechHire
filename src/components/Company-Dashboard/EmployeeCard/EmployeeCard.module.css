@@ -1,0 +1,61 @@
+/* Summary Card */
+
+.employees {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.employee_card {
+  padding-top: 10px;
+  min-width: 250px;
+  width: 250px;
+  height: fit-content;
+  padding: 28px 24px 10px 24px;
+  justify-content: space-between;
+  text-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 12px;
+  border: 1px solid #eaecf0;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
+    0px 1px 3px 0px rgba(16, 24, 40, 0.1);
+}
+
+.name {
+  font-size: 1.3rem;
+  color: var(--dark-bg);
+  font-weight: 600;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  font-size: 25px;
+  color: white;
+  padding: 10px;
+  border-radius: 99px;
+}
+.email_wrapper {
+  border-top: 1px solid rgba(128, 128, 128, 0.336);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: grey;
+}
+.email_wrapper p {
+  border-left: 1px solid rgba(128, 128, 128, 0.336);
+  padding-left: 0.4rem;
+}
+@media (max-width: 750px) {
+  .employee_card {
+    align-items: center;
+  }
+  .data {
+    align-items: center;
+  }
+}

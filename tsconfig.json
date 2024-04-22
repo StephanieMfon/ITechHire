@@ -27,6 +27,6 @@
     "src/utils/ROUTES.js",
     "app/individual/page.jsx",
     "app/individual/layout.jsx"
-, "app/individual/all-jobs/page.jsx"  ],
+, "app/individual/all-jobs/page.jsx", "src/components/Company-Dashboard/ProgressCard/index.jsx"  ],
   "exclude": ["node_modules"]
 }
