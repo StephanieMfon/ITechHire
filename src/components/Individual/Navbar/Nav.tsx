@@ -4,8 +4,36 @@ import styles from "./Nav.module.css";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
 import { ROUTES } from "../../../utils/ROUTES";
+import { Dropdown, Menu } from "antd";
+import { IoSettingsOutline } from "react-icons/io5";
+import { IoLogOutOutline } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 export default function Nav() {
+  const router = useRouter();
+
+  function logout() {
+    localStorage.removeItem("access_token");
+    router.push(ROUTES.LOGIN);
+  }
+  const menu = (
+    <Menu>
+      <Menu.Item key="1">
+        <div className={styles.drop_item}>
+          <IoSettingsOutline />
+
+          <Link href="">Account Settings</Link>
+        </div>
+      </Menu.Item>
+      <div className={styles.line}></div>
+      <Menu.Item key="2" className={styles.drop_item}>
+        <div onClick={() => logout()} className={styles.drop_item}>
+          <IoLogOutOutline />
+          Logout
+        </div>
+      </Menu.Item>
+    </Menu>
+  );
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   return (
     <div className={styles.nav}>
@@ -18,22 +46,34 @@ export default function Nav() {
 
           {/* Right Side */}
           <div className={styles.left_wrapper}>
-            <div className={styles.left_item}>
+            <Link
+              href={ROUTES.INDIVIDUAL.ALL_JOBS}
+              className={styles.left_item}
+            >
               <img
                 className={styles.left_img}
                 src={"/individual/jobs.svg"}
                 alt="Jobs"
               />
               <span className={styles.title}>Jobs</span>
-            </div>
-            <div className={styles.left_item}>
-              <img
-                className={styles.left_img}
-                src="/individual/me.svg"
-                alt="Me"
-              />
-              <span className={styles.title}>Me</span>
-            </div>
+            </Link>
+            <Dropdown
+              overlay={menu}
+              trigger={["click"]}
+              className={styles.dropdown}
+            >
+              <a onClick={(e) => e.preventDefault()}>
+                <div className={styles.left_item}>
+                  <img
+                    className={styles.left_img}
+                    src="/individual/me.svg"
+                    alt="Me"
+                  />
+
+                  <span className={styles.title}>Me</span>
+                </div>
+              </a>
+            </Dropdown>
           </div>
         </div>
         <div className={styles.nav_mobile_container}>
@@ -45,11 +85,23 @@ export default function Nav() {
           {/* Right Side */}
           <div className={styles.left_wrapper}>
             <div className={styles.left_item}>
-              <img
-                className={styles.left_img}
-                src="/individual/me.svg"
-                alt="Me"
-              />
+              <Dropdown
+                overlay={menu}
+                trigger={["click"]}
+                className={styles.dropdown}
+              >
+                <a onClick={(e) => e.preventDefault()}>
+                  <div className={styles.left_item}>
+                    <img
+                      className={styles.left_img}
+                      src="/individual/me.svg"
+                      alt="Me"
+                    />
+
+                    {/* <span className={styles.title}>Me</span> */}
+                  </div>
+                </a>
+              </Dropdown>
             </div>
 
             <div className={styles.left_item}>

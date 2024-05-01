@@ -4,19 +4,22 @@
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
+
 .employee_card {
-  padding-top: 10px;
-  min-width: 250px;
-  width: 250px;
+  /* padding: 10px 20px; */
+  min-width: 200px;
+  width: 20%;
   height: fit-content;
-  padding: 28px 24px 10px 24px;
+  padding: 28px 34px 10px 34px;
   justify-content: space-between;
   text-wrap: nowrap;
   display: flex;
   flex-direction: column;
   gap: 24px;
   border-radius: 12px;
+  background-color: white;
   border: 1px solid #eaecf0;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
     0px 1px 3px 0px rgba(16, 24, 40, 0.1);
@@ -40,6 +43,7 @@
   padding: 10px;
   border-radius: 99px;
 }
+
 .email_wrapper {
   border-top: 1px solid rgba(128, 128, 128, 0.336);
   display: flex;
@@ -47,14 +51,40 @@
   gap: 0.8rem;
   color: grey;
 }
+
 .email_wrapper p {
   border-left: 1px solid rgba(128, 128, 128, 0.336);
   padding-left: 0.4rem;
+  cursor: pointer;
 }
-@media (max-width: 750px) {
+
+@media (max-width: 1200px) {
   .employee_card {
     align-items: center;
+    width: 100px;
+    padding: 28px 22px 10px 22px;
+
+    /* height: 400px; */
+    /* max-width: 200px; */
   }
+
+  .data {
+    align-items: center;
+  }
+}
+@media (max-width: 750px) {
+  .employees {
+    justify-content: center;
+  }
+
+  .employee_card {
+    padding: 28px 39px 10px 39px;
+
+    align-items: center;
+    width: 380px;
+    height: 100px;
+  }
+
   .data {
     align-items: center;
   }

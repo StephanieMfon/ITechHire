@@ -1,5 +1,5 @@
-import Employee from "../../../src/components/Company-Dashboard/Employee/Employee";
+import Employees from "../../../src/components/Company-Dashboard/Employee/Employee";
 const JobListingPage = () => {
-  return <Employee />;
+  return <Employees />;
 };
 export default JobListingPage;

@@ -79,6 +79,12 @@
   gap: 12px;
 }
 
+.loading_img {
+  padding: 0.5rem 3.8rem;
+}
+.loading {
+  width: 40px;
+}
 @media (max-width: 1024px) {
   .hero_wrapper {
     height: max-content;

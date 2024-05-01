@@ -3,34 +3,50 @@ import Nav from "../../src/components/Individual/Navbar/Nav";
 import IndividualHero from "../../src/components/Individual/Hero/Hero";
 import Companies from "../../src/components/Individual/Companies/Companies";
 import JobList from "../../src/components/Individual/JobLIst/JobList";
+
+import VacancyRepository from "../../src/repositories/VacancyRepository";
 import { dummyData } from "../../src/utils/data";
 import { useEffect, useState } from "react";
 const IndividualHomePage = () => {
-  const [data, setData] = useState(null);
+  const [pageData, setPageData] = useState({
+    newJobs: [],
+    engineeringJobs: [],
+    designJobs: [],
+  });
+
+  const getData = async () => {
+    const data = await Promise.all([
+      VacancyRepository.get_total("", 3),
+      VacancyRepository.get_total("eng"),
+      VacancyRepository.get_total("design"),
+    ]);
+
+    setPageData({
+      newJobs: data[0].data,
+      engineeringJobs: data[1].data,
+      designJobs: data[2].data,
+    });
+    console.log(data);
+  };
+
+  console.log(pageData);
   const [loading, setLoading] = useState(true); // State to manage loading state
 
   useEffect(() => {
-    // Simulate data loading from API with 2 seconds delay
-    const fetchData = () => {
-      setTimeout(() => {
-        // Replace this with your actual API call
-
-        setData(dummyData);
-        setLoading(false); // Set loading state to false after data is fetched
-      }, 2000); // 2000 milliseconds = 2 seconds delay
-    };
-
-    fetchData(); // Call the fetchData function when component mounts
+    getData();
   }, []);
-  console.log(data);
   return (
     <div className="app">
       <Nav />
       <IndividualHero />
       <Companies />
-      <JobList data={data} limit={3} title="New jobs" />
-      <JobList data={data} limit={3} title="Top engineering jobs" />
-      <JobList data={data} limit={3} title="Top design jobs" />
+      <JobList data={pageData.newJobs} limit={3} title="New jobs" />
+      <JobList
+        data={pageData.engineeringJobs}
+        limit={3}
+        title="Top engineering jobs"
+      />
+      <JobList data={pageData.designJobs} limit={3} title="Top design jobs" />
     </div>
   );
 };

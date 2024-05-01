@@ -6,44 +6,45 @@ import { LuMapPin } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
 import Link from "next/link";
 import { ROUTES } from "../../../utils/ROUTES";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+
 import React from "react";
+import { getDate } from "../../../utils/dateConfig";
+import { Skeleton } from "antd";
 
 const JobList = ({ data, limit = 0, title = "" }) => {
+  console.log(data);
   if (limit > 1)
     return (
       <div className={styles.j_wrapper}>
-        {!data ? (
-          <div className={`container ${styles.j_container}`}>
-            {[...Array(3)].map((_, index) => (
-              <React.Fragment key={index}>
-                <Skeleton count={8} />
-                {index < 2 && <div className={styles.itemSeparator} />}
-              </React.Fragment>
-            ))}
+        {data.length === 0 ? (
+          <div className={"container"}>
+            <Skeleton size={"large"} active />
+            <Skeleton size={"large"} active />
+            <Skeleton size={"large"} active />
           </div>
         ) : (
           <div className={`container ${styles.j_container}`}>
             {data && title.length > 1 && (
               <div className={styles.title_section}>
                 <span className={styles.title}>{title}</span>{" "}
-                <Link href="#">See all jobs →</Link>
+                <Link href={ROUTES.INDIVIDUAL.ALL_JOBS}>See all jobs →</Link>
               </div>
             )}
             <div className={styles.j_items_container}>
               {data?.splice(0, limit).map((item, index) => (
                 <Link
-                  href={`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item.id}`}
+                  href={`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item._id}`}
                   className={styles.j_item}
                   key={index}
                 >
                   {/* Top Section */}
                   <div className={styles.j_top}>
                     <div>
-                      <span className={styles.time}>{item.time}</span>
+                      <span className={styles.time}>
+                        {getDate(item.time.$date).day || <Skeleton />}
+                      </span>
                       <span className={styles.j_top_place}>
-                        {item.type} - {item.location}
+                        {item.jobType} - {item.location}
                       </span>
                     </div>
 
@@ -59,9 +60,7 @@ const JobList = ({ data, limit = 0, title = "" }) => {
                         alt={item.companyName}
                       />
                       <div>
-                        <span className={styles.job_title}>
-                          {item.jobTitle}
-                        </span>
+                        <span className={styles.job_title}>{item.title}</span>
                         <span className={styles.companyName}>
                           {item.companyName}
                         </span>
@@ -74,12 +73,12 @@ const JobList = ({ data, limit = 0, title = "" }) => {
                       </span>
                       <span className={styles.details}>
                         <TbSmartHome />
-                        <span>{item.type} </span>
+                        <span>{item.jobType} </span>
 
                         <LuMapPin />
                         <span>{item.location}</span>
                         <IoMdTime />
-                        <span>{item.commitment}</span>
+                        <span>{item.mode}</span>
                       </span>
                     </div>
                   </div>
@@ -95,11 +94,11 @@ const JobList = ({ data, limit = 0, title = "" }) => {
       <div className={styles.j_wrapper}>
         {!data ? (
           <div className={`container ${styles.j_container}`}>
-            {[...Array(10)].map((_, index) => (
+            {[...Array(3)].map((_, index) => (
               <React.Fragment key={index}>
-                <Skeleton count={8} />
+                <Skeleton active />
 
-                {index < 10 && <div className={styles.itemSeparator} />}
+                {index < 3 && <div className={styles.itemSeparator} />}
               </React.Fragment>
             ))}
           </div>
@@ -108,7 +107,7 @@ const JobList = ({ data, limit = 0, title = "" }) => {
             <div className={styles.j_items_container}>
               {data.map((item, index) => (
                 <Link
-                  href={`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item.id}`}
+                  href={`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item._id}`}
                   className={styles.j_item}
                   key={index}
                 >
@@ -116,10 +115,10 @@ const JobList = ({ data, limit = 0, title = "" }) => {
                   <div className={styles.j_top}>
                     <div>
                       <span className={styles.time}>
-                        {item.time || <Skeleton />}
+                        {getDate(item.time.$date).day || <Skeleton />}
                       </span>
                       <span className={styles.j_top_place}>
-                        {item.type} - {item.location}
+                        {item.jobType} - {item.location}
                       </span>
                     </div>
 
@@ -135,9 +134,7 @@ const JobList = ({ data, limit = 0, title = "" }) => {
                         alt={item.companyName}
                       />
                       <div>
-                        <span className={styles.job_title}>
-                          {item.jobTitle}
-                        </span>
+                        <span className={styles.job_title}>{item.title}</span>
                         <span className={styles.companyName}>
                           {item.companyName}
                         </span>
@@ -150,12 +147,12 @@ const JobList = ({ data, limit = 0, title = "" }) => {
                       </span>
                       <span className={styles.details}>
                         <TbSmartHome />
-                        <span>{item.type} </span>
+                        <span>{item.jobType} </span>
 
                         <LuMapPin />
                         <span>{item.location}</span>
                         <IoMdTime />
-                        <span>{item.commitment}</span>
+                        <span>{item.mode}</span>
                       </span>
                     </div>
                   </div>

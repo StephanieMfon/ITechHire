@@ -1,4 +1,4 @@
-import AllJobs from "../../../src/components/Individual/AllJobs/AllJobs";
+import AllJobs from "../../../src/components/Company-Dashboard/AllJobs/CompanyJobs";
 
 const JobListingPage = () => {
   return <AllJobs />;

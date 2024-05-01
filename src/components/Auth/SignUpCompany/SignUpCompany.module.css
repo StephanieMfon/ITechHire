@@ -99,7 +99,12 @@
   color: #939392;
   font-weight: 700;
 }
-
+.loading_img {
+  padding: 0.5rem 3.8rem;
+}
+.loading {
+  width: 40px;
+}
 @media (max-width: 1024px) {
   .hero_left {
     display: none;

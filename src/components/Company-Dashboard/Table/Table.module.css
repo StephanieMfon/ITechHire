@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   padding: 10px 20px;
+  box-sizing: border-box;
   border-radius: 16px;
   border: 1px solid var(--Primary-Colour-110, #e6f2f5);
   background: #fff;
@@ -16,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
 }
-.download_button {
+.add_new {
   border-radius: 4px;
   background: var(--primary-color);
   padding: 18px 64px;
@@ -25,8 +26,10 @@
   font-weight: 700;
   border: none;
   gap: 3rem;
+  cursor: pointer;
 }
-.download_button:hover {
+
+.add_new:hover {
   color: #122231;
   background-color: var(--white);
   border: 1px solid var(--primary-color);
@@ -111,4 +114,15 @@
   .download_button {
     display: none;
   }
+}
+
+.fragment_section {
+  background-color: #fff;
+  height: 100vh;
+}
+
+.itemSeparator {
+  height: 8px;
+  margin-bottom: 10px;
+  border-radius: 24px;
 }

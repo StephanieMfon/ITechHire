@@ -9,7 +9,13 @@ import { Input } from "../../FormComponent/input";
 import { Error } from "../../FormComponent/error";
 import Link from "next/link";
 
-const SignUpIndividual = ({ handleSubmit, onSubmit, control, errors }) => {
+const SignUpIndividual = ({
+  handleSubmit,
+  onSubmit,
+  control,
+  errors,
+  loading,
+}) => {
   const router = useRouter();
   const imgVariants = () => ({
     initial: {
@@ -54,14 +60,14 @@ const SignUpIndividual = ({ handleSubmit, onSubmit, control, errors }) => {
           </h1>
           <div className={styles.inputs}>
             <Controller
-              name="firstname"
+              name="first_name"
               control={control}
               defaultValue=""
               // rules={{ required: "Please enter your first name!" }}
               render={({ field }) => {
                 return (
                   <Input
-                    id="firstname"
+                    id="first_name"
                     placeholder="First Name"
                     error={errors.firstname?.message}
                     field={field}
@@ -70,14 +76,14 @@ const SignUpIndividual = ({ handleSubmit, onSubmit, control, errors }) => {
               }}
             />
             <Controller
-              name="lastname"
+              name="last_name"
               control={control}
               defaultValue=""
               rules={{ required: "Please enter your last name!" }}
               render={({ field }) => {
                 return (
                   <Input
-                    id="lastname"
+                    id="last_name"
                     placeholder="Last Name"
                     error={errors.lastname?.message}
                     field={field}
@@ -115,47 +121,9 @@ const SignUpIndividual = ({ handleSubmit, onSubmit, control, errors }) => {
                     id="password"
                     placeholder="Password"
                     error={errors.password?.message}
-                    field={{
-                      ...field,
-                      onChange: (e) => {
-                        field.onChange(e);
-
-                        setFormData({
-                          ...formData,
-                          password: e.target.value,
-                        });
-                      },
-                    }}
+                    field={field}
                     type="password"
                   ></Input>
-                );
-              }}
-            />
-
-            <Controller
-              control={control}
-              name="role"
-              // defaultValue="option1"
-              rules={{ required: "Role is required" }}
-              render={({ field }) => {
-                return (
-                  <>
-                    <select
-                      id="role"
-                      ref={field?.ref}
-                      onChange={(e) =>
-                        field?.onChange({ target: { value: e.target.value } })
-                      }
-                      className={styles.selectInput}
-                    >
-                      <option value="">Role</option>
-                      <option value="mentor">Mentor</option>
-                      <option value="mentee">Mentee</option>
-                    </select>
-                    {errors.marital_status && (
-                      <Error>{errors.marital_status.message}</Error>
-                    )}
-                  </>
                 );
               }}
             />
@@ -172,11 +140,17 @@ const SignUpIndividual = ({ handleSubmit, onSubmit, control, errors }) => {
           </p>
 
           <button
-            onClick={() => router.push(ROUTES.INDIVIDUAL.MAIN)}
-            className="button"
+            className={`button ${loading && styles.loading_img}`}
             type="submit"
           >
-            Submit
+            {!loading && <span>Submit</span>}
+            {loading && (
+              <img
+                src="/loading.svg"
+                className={styles.loading}
+                alt="Loading"
+              />
+            )}
           </button>
         </form>
       </div>

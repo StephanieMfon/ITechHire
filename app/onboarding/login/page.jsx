@@ -5,6 +5,8 @@ import { ROUTES } from "../../../src/utils/ROUTES";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Login from "../../../src/components/Auth/Login/Login";
+import AuthenticationRepository from "../../../src/repositories/AuthRepository";
+import openNotification from "../../../src/components/Shared/Notification";
 
 const defaultValues = {
   email: "",
@@ -22,33 +24,55 @@ const LoginPage = () => {
   } = useForm({ defaultValues: defaultValues });
 
   const onSubmit = async (data) => {
-    const response = await AuthenticationRepository.login(data);
-    console.log(response);
+    setLoading(true);
 
-    if (response.response?.status === 400) {
+    try {
+      const [response, companyResponse] = await Promise.all([
+        AuthenticationRepository.login(data),
+        AuthenticationRepository.companyLogin(data),
+      ]);
+
+      if (response.status === 200) {
+        setLoading(false);
+        openNotification({
+          type: "success",
+          message: "Individual Login Successful!",
+        });
+        localStorage.setItem("access_token", response.data.access_token);
+        router.push(ROUTES.INDIVIDUAL.MAIN);
+        return;
+      } else if (companyResponse.status === 200) {
+        setLoading(false);
+        openNotification({
+          type: "success",
+          message: "Company Login Successful!",
+        });
+        localStorage.setItem("access_token", companyResponse.data.access_token);
+        router.push(ROUTES.COMPANY_DASHBOARD.MAIN);
+      } else {
+        setLoading(false);
+        openNotification({
+          type: "error",
+          message: "User not registered",
+        });
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error("Error during login:", error);
       openNotification({
         type: "error",
-        message: "Email already exists",
+        message: "An error occurred during login",
       });
-
-      setLoading(false);
-    }
-
-    if (response.status === 201) {
-      openNotification({
-        type: "success",
-        message: "Registration Successful!",
-      });
-
-      router.push(ROUTES.LOGIN);
     }
   };
+
   return (
     <Login
       handleSubmit={handleSubmit}
       onSubmit={onSubmit}
       control={control}
       errors={errors}
+      loading={loading}
     />
   );
 };

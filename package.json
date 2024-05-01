@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^5.16.4",
+    "antd-style": "^3.6.2",
+    "axios": "^1.6.8",
     "chart.js": "^4.4.2",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
+    "firebase": "^10.11.1",
     "framer-motion": "^10.15.2",
     "next": "13.4.16",
     "react": "18.2.0",

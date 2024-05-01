@@ -5,13 +5,14 @@ import { ROUTES } from "../../../src/utils/ROUTES";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import SignUpIndividual from "../../../src/components/Auth/SignUpIndividual/SignUp";
+import AuthenticationRepository from "../../../src/repositories/AuthRepository";
+import openNotification from "../../../src/components/Shared/Notification";
 
 const defaultValues = {
   firstname: "",
   lastname: "",
   email: "",
   password: "",
-  role: "",
 };
 const SignUpIndividualPage = () => {
   const [loading, setLoading] = useState(false);
@@ -24,10 +25,13 @@ const SignUpIndividualPage = () => {
   } = useForm({ defaultValues: defaultValues });
 
   const onSubmit = async (data) => {
+    setLoading(true);
+    console.log(data);
     const response = await AuthenticationRepository.signup(data);
-    console.log(response);
+    console.log(response.status);
 
     if (response.response?.status === 400) {
+      setLoading(false);
       openNotification({
         type: "error",
         message: "Email already exists",
@@ -37,6 +41,7 @@ const SignUpIndividualPage = () => {
     }
 
     if (response.status === 201) {
+      setLoading(false);
       openNotification({
         type: "success",
         message: "Registration Successful!",
@@ -51,6 +56,7 @@ const SignUpIndividualPage = () => {
       onSubmit={onSubmit}
       control={control}
       errors={errors}
+      loading={loading}
     />
   );
 };

@@ -1,6 +1,6 @@
 export const ROUTES = {
-  SIGN_UP: "sign-up",
-  LOGIN: "login",
+  SIGN_UP: "/onboarding/sign-up",
+  LOGIN: "/onboarding/login",
   COMPANY_SIGNIN: "/onboarding/sign-up-company",
   INDIVIDUAL_SIGNIN: "/onboarding/sign-up-individual",
   INDIVIDUAL: {

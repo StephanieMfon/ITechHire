@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./SingleJob.module.css";
-import Nav from "../../../components/Individual/Navbar/Nav";
+import Nav from "../Navbar/Nav";
 import { dummyData } from "../../../utils/data";
 import { FaRegStar } from "react-icons/fa";
 import Link from "next/link";

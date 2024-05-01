@@ -1,24 +1,31 @@
 "use client";
-import JobList from "../JobLIst/JobList";
-import styles from "./AllJobs.module.css";
+import JobList from "../../Individual/JobLIst/JobList";
+import styles from "./CompanyJobs.module.css";
 import { FiSearch } from "react-icons/fi";
 import { dummyData } from "../../../utils/data";
-import Nav from "../Navbar/Nav";
 import { useEffect, useState } from "react";
+import AddVacancyModal from "../../Modals/Add_vacancy";
 import VacancyRepository from "../../../repositories/VacancyRepository";
 
 const AllJobs = () => {
   const [vacancies, setVacancies] = useState(null);
+  const [addVacancyModal, setAddVacancyModalOpen] = useState([false, false]);
 
-  const getVacancies = async () => {
-    const data = await VacancyRepository.get_total();
+  const toggleModal = (idx, target) => {
+    setAddVacancyModalOpen((p) => {
+      p[idx] = target;
+      return [...p];
+    });
+  };
+  const handleSearchChange = async (e) => {
+    const searchTerm = e.target.value;
+    const data = await VacancyRepository.get_total(searchTerm);
     console.log(data);
     setVacancies(data.data);
   };
 
-  const handleSearchChange = async (e) => {
-    const searchTerm = e.target.value;
-    const data = await VacancyRepository.get_total(searchTerm);
+  const getVacancies = async () => {
+    const data = await VacancyRepository.get_all();
     console.log(data);
     setVacancies(data.data);
   };
@@ -28,9 +35,10 @@ const AllJobs = () => {
   }, []);
   return (
     <div className={styles.aj_wrapper}>
-      <Nav />
-      <div className="container">
+      <div className="d_container">
         <div className={styles.aj_container}>
+          <span className={styles.title}>Job Listings</span>
+
           <div className={styles.search_box}>
             <div className={styles.form_wrapper}>
               <form>
@@ -45,9 +53,21 @@ const AllJobs = () => {
               </form>
             </div>
           </div>
+
+          <button
+            className={styles.add_new}
+            onClick={() => toggleModal(0, true)}
+          >
+            Add New
+          </button>
           <JobList data={vacancies} />
         </div>
       </div>
+      <AddVacancyModal
+        isModalOpen={addVacancyModal}
+        toggleModal={toggleModal}
+        setVacancies={setVacancies}
+      />
     </div>
   );
 };

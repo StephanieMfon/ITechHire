@@ -1,8 +1,15 @@
+.e_wrapper {
+  background-color: #f3f4f8;
+  min-height: 100vh;
+  width: 100%;
+}
+
 .e_container {
   padding: 75px 0 0 0;
   display: flex;
   flex-direction: column;
   gap: 1.9rem;
+  width: 100%;
 }
 
 .title {
@@ -17,11 +24,13 @@
   border-bottom: 4px solid var(--secondary-color);
   padding-bottom: 3px;
 }
+
 .top_section {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .add_new {
   border-radius: 4px;
   background: var(--primary-color);
@@ -31,9 +40,17 @@
   font-weight: 700;
   border: none;
   gap: 3rem;
+  cursor: pointer;
 }
+
 .add_new:hover {
   color: #122231;
   background-color: var(--white);
   border: 1px solid var(--primary-color);
+}
+@media (max-width: 750px) {
+  .top_section {
+    flex-direction: column;
+    align-items: start;
+  }
 }

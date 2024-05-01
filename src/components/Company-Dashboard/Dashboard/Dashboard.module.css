@@ -1,3 +1,8 @@
+.d_wrapper {
+  background-color: #f3f4f8;
+  min-height: 100vh;
+}
+
 .dash_container {
   padding: 75px 0 0 0;
   display: flex;

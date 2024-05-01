@@ -10,7 +10,7 @@ import { Input } from "../../FormComponent/input";
 
 import Link from "next/link";
 
-const Login = ({ handleSubmit, onSubmit, control, errors }) => {
+const Login = ({ handleSubmit, onSubmit, control, errors, loading }) => {
   const imgVariants = () => ({
     initial: {
       y: "18rem",
@@ -62,17 +62,7 @@ const Login = ({ handleSubmit, onSubmit, control, errors }) => {
                     id="password"
                     placeholder="Password"
                     error={errors.password?.message}
-                    field={{
-                      ...field,
-                      onChange: (e) => {
-                        field.onChange(e);
-
-                        setFormData({
-                          ...formData,
-                          password: e.target.value,
-                        });
-                      },
-                    }}
+                    field={field}
                     type="password"
                   ></Input>
                 );
@@ -89,9 +79,18 @@ const Login = ({ handleSubmit, onSubmit, control, errors }) => {
               Sign up
             </Link>{" "}
           </p>
-
-          <button className={"button"} type="submit">
-            Submit
+          <button
+            className={`button ${loading && styles.loading_img}`}
+            type="submit"
+          >
+            {!loading && <span>Submit</span>}
+            {loading && (
+              <img
+                src="/loading.svg"
+                className={styles.loading}
+                alt="Loading"
+              />
+            )}
           </button>
         </form>
       </div>

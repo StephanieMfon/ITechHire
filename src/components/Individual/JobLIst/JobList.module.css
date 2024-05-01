@@ -1,6 +1,7 @@
 .j_wrapper {
   background-color: #f3f4f8;
   /* min-height: 100vh; */
+  padding-bottom: 3rem;
 }
 
 .j_items_container {
@@ -114,9 +115,12 @@
   font-weight: 300;
   font-size: 1.1rem;
 }
-.company_picture {
-  border-radius: 999px;
+.right_section {
+  max-width: 380px;
 }
+/* .company_picture {
+  border-radius: 999px;
+} */
 @media (max-width: 750px) {
   .j_top div {
     gap: 0.2rem;

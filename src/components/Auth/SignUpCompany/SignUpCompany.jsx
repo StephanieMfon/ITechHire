@@ -9,7 +9,14 @@ import { Input } from "../../FormComponent/input";
 import { Error } from "../../FormComponent/error";
 import Link from "next/link";
 
-const SignUpCompany = ({ handleSubmit, onSubmit, control, errors }) => {
+const SignUpCompany = ({
+  handleSubmit,
+  onSubmit,
+  control,
+  errors,
+  loading,
+  handleFileChange,
+}) => {
   const router = useRouter();
   const imgVariants = () => ({
     initial: {
@@ -100,7 +107,7 @@ const SignUpCompany = ({ handleSubmit, onSubmit, control, errors }) => {
                       <input
                         {...field}
                         value={value?.fileName}
-                        // onChange={handleFileChange}
+                        onChange={(e) => handleFileChange(e)}
                         type="file"
                         id="logo"
                       />
@@ -132,17 +139,7 @@ const SignUpCompany = ({ handleSubmit, onSubmit, control, errors }) => {
                     id="password"
                     placeholder="Password"
                     error={errors.password?.message}
-                    field={{
-                      ...field,
-                      onChange: (e) => {
-                        field.onChange(e);
-
-                        setFormData({
-                          ...formData,
-                          password: e.target.value,
-                        });
-                      },
-                    }}
+                    field={field}
                     type="password"
                   ></Input>
                 );
@@ -159,13 +156,18 @@ const SignUpCompany = ({ handleSubmit, onSubmit, control, errors }) => {
               Sign in
             </Link>{" "}
           </p>
-
           <button
-            onClick={() => router.push(ROUTES.COMPANY_DASHBOARD.MAIN)}
-            className="button"
+            className={`button ${loading && styles.loading_img}`}
             type="submit"
           >
-            Submit
+            {!loading && <span>Submit</span>}
+            {loading && (
+              <img
+                src="/loading.svg"
+                className={styles.loading}
+                alt="Loading"
+              />
+            )}
           </button>
         </form>
       </div>

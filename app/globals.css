@@ -47,11 +47,20 @@ a {
   .container {
     max-width: 1600px;
   }
+  .d_container {
+    max-width: 1600px;
+  }
 }
 
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
+  }
+}
+@media (min-width: 300px) {
+  .d_container {
+    padding-top: 19px;
+    max-width: 350px;
   }
 }
 
@@ -60,7 +69,7 @@ a {
     max-width: 720px;
   }
   .d_container {
-    max-width: 720px;
+    max-width: 620px;
   }
 }
 
@@ -68,14 +77,19 @@ a {
   .container {
     max-width: 960px;
   }
-  .d_container {
+  /* .d_container {
     max-width: 1060px;
-  }
+  } */
 }
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
   }
+  .d_container {
+    max-width: 900px;
+  }
+}
+@media (min-width: 1350px) {
   .d_container {
     max-width: 1300px;
   }
