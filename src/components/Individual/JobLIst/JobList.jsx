@@ -10,9 +10,15 @@ import { ROUTES } from "../../../utils/ROUTES";
 import React from "react";
 import { getDate } from "../../../utils/dateConfig";
 import { Skeleton } from "antd";
+import { FaStar } from "react-icons/fa6";
 
-const JobList = ({ data, limit = 0, title = "" }) => {
-  console.log(data);
+import { color } from "framer-motion";
+
+const JobList = ({ data, saved, limit = 0, title = "" }) => {
+  const isVacancySaved = (vacancyId) => {
+    return saved?.some((savedVacancy) => savedVacancy._id === vacancyId);
+  };
+
   if (limit > 1)
     return (
       <div className={styles.j_wrapper}>
@@ -48,7 +54,14 @@ const JobList = ({ data, limit = 0, title = "" }) => {
                       </span>
                     </div>
 
-                    <FaRegStar className={styles.star_icon} />
+                    <div>
+                      {isVacancySaved(item._id) && (
+                        <FaStar className={styles.star_icon} color="orange" />
+                      )}
+                      {!isVacancySaved(item._id) && (
+                        <FaRegStar className={styles.star_icon} color="grey" />
+                      )}
+                    </div>
                   </div>
                   {/* Bottom Section */}
                   <div className={styles.j_bottom}>
@@ -121,8 +134,14 @@ const JobList = ({ data, limit = 0, title = "" }) => {
                         {item.jobType} - {item.location}
                       </span>
                     </div>
-
-                    <FaRegStar className={styles.star_icon} />
+                    <div>
+                      {isVacancySaved(item._id) && (
+                        <FaStar className={styles.star_icon} color="orange" />
+                      )}
+                      {!isVacancySaved(item._id) && (
+                        <FaRegStar className={styles.star_icon} color="grey" />
+                      )}
+                    </div>
                   </div>
                   {/* Bottom Section */}
                   <div className={styles.j_bottom}>

@@ -57,6 +57,23 @@ class VacancyRepository {
     }
   }
 
+  async get_saved_vacancies() {
+    console.log("DEBUG: making a GET request to /vacancy/talent/saved");
+
+    try {
+      const payload = await VacancyInstance.get(
+        `${this.BASE_URL}/vacancy/talent/saved`,
+        {
+          headers: this.HEADERS,
+        }
+      );
+
+      return payload;
+    } catch (e) {
+      return e;
+    }
+  }
+
   async get_total(search = "", limit = 0) {
     console.log("DEBUG: making a GET request to /vacancy");
     console.log(

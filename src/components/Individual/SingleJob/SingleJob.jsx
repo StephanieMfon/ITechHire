@@ -2,7 +2,7 @@
 
 import styles from "./SingleJob.module.css";
 import Nav from "../../../components/Individual/Navbar/Nav";
-import { dummyData } from "../../../utils/data";
+
 import { FaRegStar } from "react-icons/fa";
 import Link from "next/link";
 import { TbSmartHome } from "react-icons/tb";

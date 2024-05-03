@@ -1,12 +1,15 @@
 "use client";
-import JobList from "../../Individual/JobLIst/JobList";
 import styles from "./CompanyJobs.module.css";
 import { FiSearch } from "react-icons/fi";
 import { dummyData } from "../../../utils/data";
 import { useEffect, useState } from "react";
 import AddVacancyModal from "../../Modals/Add_vacancy";
 import VacancyRepository from "../../../repositories/VacancyRepository";
+import dynamic from "next/dynamic";
 
+const JobList = dynamic(() => import("../../Individual/JobLIst/JobList"), {
+  ssr: false,
+});
 const AllJobs = () => {
   const [vacancies, setVacancies] = useState(null);
   const [addVacancyModal, setAddVacancyModalOpen] = useState([false, false]);

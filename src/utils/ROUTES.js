@@ -7,6 +7,7 @@ export const ROUTES = {
     MAIN: "/individual",
     ALL_JOBS: "/individual/all-jobs",
     SINGLE_JOB: "/individual/all-jobs/4",
+    SETTINGS: "/individual/settings",
   },
   COMPANY_DASHBOARD: {
     MAIN: "/company-dashboard",

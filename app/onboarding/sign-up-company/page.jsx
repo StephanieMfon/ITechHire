@@ -5,10 +5,16 @@ import { ROUTES } from "../../../src/utils/ROUTES";
 import { storage } from "../../../src/utils/firebase";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import SignUpCompany from "../../../src/components/Auth/SignUpCompany/SignUpCompany";
 import openNotification from "../../../src/components/Shared/Notification";
 import AuthenticationRepository from "../../../src/repositories/AuthRepository";
+import dynamic from "next/dynamic";
 
+const SignUpCompany = dynamic(
+  () => import("../../../src/components/Auth/SignUpCompany/SignUpCompany"),
+  {
+    ssr: false,
+  }
+);
 const defaultValues = {
   name: "",
   email: "",

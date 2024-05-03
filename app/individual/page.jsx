@@ -2,11 +2,16 @@
 import Nav from "../../src/components/Individual/Navbar/Nav";
 import IndividualHero from "../../src/components/Individual/Hero/Hero";
 import Companies from "../../src/components/Individual/Companies/Companies";
-import JobList from "../../src/components/Individual/JobLIst/JobList";
 
 import VacancyRepository from "../../src/repositories/VacancyRepository";
-import { dummyData } from "../../src/utils/data";
 import { useEffect, useState } from "react";
+
+import dynamic from "next/dynamic";
+
+const JobList = dynamic(
+  () => import("../../src/components/Individual/JobLIst/JobList"),
+  { ssr: false }
+);
 const IndividualHomePage = () => {
   const [pageData, setPageData] = useState({
     newJobs: [],

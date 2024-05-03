@@ -4,10 +4,17 @@ import { useRouter } from "next/navigation";
 import { ROUTES } from "../../../src/utils/ROUTES";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import SignUpIndividual from "../../../src/components/Auth/SignUpIndividual/SignUp";
 import AuthenticationRepository from "../../../src/repositories/AuthRepository";
 import openNotification from "../../../src/components/Shared/Notification";
 
+import dynamic from "next/dynamic";
+
+const SignUpIndividual = dynamic(
+  () => import("../../../src/components/Auth/SignUpIndividual/SignUp"),
+  {
+    ssr: false,
+  }
+);
 const defaultValues = {
   firstname: "",
   lastname: "",

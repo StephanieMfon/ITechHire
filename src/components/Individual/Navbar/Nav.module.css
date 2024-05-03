@@ -7,6 +7,10 @@
   overflow: hidden;
   margin-bottom: -2.2rem;
   position: relative;
+  box-shadow: rgba(15, 20, 25, 0.04) 0px 0px 12px;
+  border-style: solid;
+  border-color: rgb(227, 233, 239);
+  border-width: 0px 1px 1px;
 }
 
 .nav_container {
@@ -92,10 +96,6 @@
     flex-direction: column;
     gap: 0.7rem;
   }
-
-  /* .nav_mobile_container > :nth-child(1) {
-    font-weight: bold;
-  } */
 
   .nav_mobile_menu {
     position: fixed;

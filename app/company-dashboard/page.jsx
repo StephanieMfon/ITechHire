@@ -1,5 +1,11 @@
-import styles from "./page.module.css";
-import Dashboard from "../../src/components/Company-Dashboard/Dashboard";
+import dynamic from "next/dynamic";
+
+const Dashboard = dynamic(
+  () => import("../../src/components/Company-Dashboard/Dashboard"),
+  { ssr: false }
+);
+
+// import Dashboard from "";
 const CompanyDashboardPage = () => {
   return <Dashboard />;
 };

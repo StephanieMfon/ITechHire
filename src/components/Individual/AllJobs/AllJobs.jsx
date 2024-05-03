@@ -9,11 +9,13 @@ import VacancyRepository from "../../../repositories/VacancyRepository";
 
 const AllJobs = () => {
   const [vacancies, setVacancies] = useState(null);
-
+  const [savedVacancies, setSavedVacancies] = useState();
   const getVacancies = async () => {
     const data = await VacancyRepository.get_total();
+    const saved = await VacancyRepository.get_saved_vacancies();
     console.log(data);
     setVacancies(data.data);
+    setSavedVacancies(saved.data);
   };
 
   const handleSearchChange = async (e) => {
@@ -45,7 +47,7 @@ const AllJobs = () => {
               </form>
             </div>
           </div>
-          <JobList data={vacancies} />
+          <JobList data={vacancies} saved={savedVacancies} />
         </div>
       </div>
     </div>

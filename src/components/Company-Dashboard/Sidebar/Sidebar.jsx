@@ -13,14 +13,6 @@ import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 const Sidebar = ({ children }) => {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
-  // const [open, setOpen] = useState(true);
-  // const [userData, setUserData] = useState();
-
-  // useEffect(() => {
-  //   const userInfo = JSON.parse(localStorage.getItem("userData") || "null");
-  //   setUserData(userInfo);
-  // }, []);
-
   function logout() {
     localStorage.removeItem("access_token");
     router.push(ROUTES.LOGIN);

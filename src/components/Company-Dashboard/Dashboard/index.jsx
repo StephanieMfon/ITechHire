@@ -10,9 +10,6 @@ import { useEffect, useState } from "react";
 import TaskRepository from "../../../repositories/TaskRepository";
 import { Skeleton } from "antd";
 
-const App = () => <Skeleton active />;
-const ComponentDemo = App;
-
 export const summaryData = [
   {
     _id: 1,

@@ -1,6 +1,18 @@
 "use client";
 import axios from "axios";
-const AuthInstance = axios.create();
+const TalentInstance = axios.create();
+
+TalentInstance.interceptors.request.use(
+  (config) => {
+    config.headers["Authorization"] =
+      `Bearer ${localStorage.getItem("access_token")}` || "";
+    config.headers["Content-Type"] = "application/json";
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 const headers = {
   "Content-Type": "application/json",
@@ -17,6 +29,55 @@ class AuthRepository {
       const payload = await axios.post(`${this.BASE_URL}/talent/create`, data, {
         headers,
       });
+      return payload;
+    } catch (e) {
+      return e;
+    }
+  }
+
+  async login(data) {
+    console.log(this.BASE_URL);
+    console.log("DEBUG: making a POST request to talent/login");
+
+    try {
+      const payload = await axios.post(`${this.BASE_URL}/talent/login`, data, {
+        headers,
+      });
+      return payload;
+    } catch (e) {
+      return e;
+    }
+  }
+
+  async update_password(data) {
+    console.log(this.BASE_URL);
+    console.log("DEBUG: making a POST request to talent/update_password");
+
+    try {
+      const payload = await TalentInstance.put(
+        `${this.BASE_URL}/talent/update_password`,
+        data,
+        {
+          headers,
+        }
+      );
+      return payload;
+    } catch (e) {
+      return e;
+    }
+  }
+  async update_email(data) {
+    console.log(this.BASE_URL);
+    console.log("DEBUG: making a POST request to talent/update-email");
+
+    try {
+      const payload = await TalentInstance.put(
+        `${this.BASE_URL}/talent/update-email`,
+        data,
+        {
+          headers,
+        }
+      );
       return payload;
     } catch (e) {
       return e;

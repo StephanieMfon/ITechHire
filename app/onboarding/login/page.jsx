@@ -4,9 +4,17 @@ import { useRouter } from "next/navigation";
 import { ROUTES } from "../../../src/utils/ROUTES";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Login from "../../../src/components/Auth/Login/Login";
 import AuthenticationRepository from "../../../src/repositories/AuthRepository";
 import openNotification from "../../../src/components/Shared/Notification";
+
+import dynamic from "next/dynamic";
+
+const Login = dynamic(
+  () => import("../../../src/components/Auth/Login/Login"),
+  {
+    ssr: false,
+  }
+);
 
 const defaultValues = {
   email: "",
@@ -38,9 +46,9 @@ const LoginPage = () => {
           type: "success",
           message: "Individual Login Successful!",
         });
+        localStorage.setItem("email", response.data.user.email);
         localStorage.setItem("access_token", response.data.access_token);
         router.push(ROUTES.INDIVIDUAL.MAIN);
-        return;
       } else if (companyResponse.status === 200) {
         setLoading(false);
         openNotification({

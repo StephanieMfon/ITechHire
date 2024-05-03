@@ -6,6 +6,7 @@
 
 .sj_container {
   background-color: #fff;
+  border: none rgb(238, 242, 246);
   margin-top: 7rem;
   padding: 15px 15px 4rem 15px;
   border-radius: 24px;

@@ -19,10 +19,12 @@ export default function Nav() {
   const menu = (
     <Menu>
       <Menu.Item key="1">
-        <div className={styles.drop_item}>
+        <div
+          onClick={() => router.push(ROUTES.INDIVIDUAL.SETTINGS)}
+          className={styles.drop_item}
+        >
           <IoSettingsOutline />
-
-          <Link href="">Account Settings</Link>
+          Account Settings
         </div>
       </Menu.Item>
       <div className={styles.line}></div>
