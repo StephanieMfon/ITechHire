@@ -73,6 +73,39 @@ class VacancyRepository {
       return e;
     }
   }
+  async save_vacancy(id) {
+    console.log("DEBUG: making a GET request to /vacancy/save/id");
+
+    try {
+      const payload = await VacancyInstance.post(
+        // TODO - Remember to fix bug with the URL on backend
+        `${this.BASE_URL}/vacancy/save/$${id}`,
+        {
+          headers: this.HEADERS,
+        }
+      );
+
+      return payload;
+    } catch (e) {
+      return e;
+    }
+  }
+  async unsave_vacancy(id) {
+    console.log("DEBUG: making a GET request to /vacancy/save/delete/id");
+
+    try {
+      const payload = await VacancyInstance.delete(
+        `${this.BASE_URL}/vacancy/saved/delete/${id}`,
+        {
+          headers: this.HEADERS,
+        }
+      );
+
+      return payload;
+    } catch (e) {
+      return e;
+    }
+  }
 
   async get_total(search = "", limit = 0) {
     console.log("DEBUG: making a GET request to /vacancy");

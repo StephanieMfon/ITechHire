@@ -10,6 +10,8 @@ import VacancyRepository from "../../../repositories/VacancyRepository";
 const AllJobs = () => {
   const [vacancies, setVacancies] = useState(null);
   const [savedVacancies, setSavedVacancies] = useState();
+  const [scene, setScene] = useState("allJobs");
+
   const getVacancies = async () => {
     const data = await VacancyRepository.get_total();
     const saved = await VacancyRepository.get_saved_vacancies();
@@ -47,7 +49,41 @@ const AllJobs = () => {
               </form>
             </div>
           </div>
-          <JobList data={vacancies} saved={savedVacancies} />
+
+          <div className={styles.scene_buttons}>
+            <button
+              className={`${styles.scene_button} ${styles.left_scene} ${
+                scene === "allJobs" ? styles.active_scene : ""
+              }`}
+              onClick={() => setScene("allJobs")}
+            >
+              All Jobs
+            </button>
+
+            <button
+              className={`${styles.scene_button} ${styles.right_scene} ${
+                scene === "savedJobs" ? styles.active_scene : ""
+              }`}
+              onClick={() => setScene("savedJobs")}
+            >
+              Saved Jobs
+            </button>
+          </div>
+          {scene === "allJobs" && (
+            <JobList
+              data={vacancies}
+              saved={savedVacancies}
+              setSavedVacancies={setSavedVacancies}
+            />
+          )}
+
+          {scene === "savedJobs" && (
+            <JobList
+              data={savedVacancies}
+              saved={savedVacancies}
+              setSavedVacancies={setSavedVacancies}
+            />
+          )}
         </div>
       </div>
     </div>

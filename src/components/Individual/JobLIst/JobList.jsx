@@ -11,12 +11,24 @@ import React from "react";
 import { getDate } from "../../../utils/dateConfig";
 import { Skeleton } from "antd";
 import { FaStar } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
+import VacancyRepository from "../../../repositories/VacancyRepository";
 
-import { color } from "framer-motion";
-
-const JobList = ({ data, saved, limit = 0, title = "" }) => {
+const JobList = ({ data, saved, limit = 0, title = "", setSavedVacancies }) => {
+  const router = useRouter();
   const isVacancySaved = (vacancyId) => {
     return saved?.some((savedVacancy) => savedVacancy._id === vacancyId);
+  };
+
+  const saveVacancy = async (id) => {
+    await VacancyRepository.save_vacancy(id);
+    const response = await VacancyRepository.get_saved_vacancies();
+    setSavedVacancies(response.data);
+  };
+
+  const unsaveVacancy = async (id) => {
+    const response = await VacancyRepository.unsave_vacancy(id);
+    setSavedVacancies(response.data);
   };
 
   if (limit > 1)
@@ -38,8 +50,8 @@ const JobList = ({ data, saved, limit = 0, title = "" }) => {
             )}
             <div className={styles.j_items_container}>
               {data?.splice(0, limit).map((item, index) => (
-                <Link
-                  href={`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item._id}`}
+                <div
+                  // href={}
                   className={styles.j_item}
                   key={index}
                 >
@@ -56,15 +68,29 @@ const JobList = ({ data, saved, limit = 0, title = "" }) => {
 
                     <div>
                       {isVacancySaved(item._id) && (
-                        <FaStar className={styles.star_icon} color="orange" />
+                        <FaStar
+                          onClick={() => unsaveVacancy(item._id)}
+                          className={styles.star_icon}
+                          color="orange"
+                        />
                       )}
+
                       {!isVacancySaved(item._id) && (
-                        <FaRegStar className={styles.star_icon} color="grey" />
+                        <FaRegStar
+                          onClick={() => saveVacancy(item._id)}
+                          className={styles.star_icon}
+                          color="grey"
+                        />
                       )}
                     </div>
                   </div>
                   {/* Bottom Section */}
-                  <div className={styles.j_bottom}>
+                  <div
+                    className={styles.j_bottom}
+                    onClick={() =>
+                      router.push(`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item._id}`)
+                    }
+                  >
                     {/* Left Section */}
                     <div className={styles.j_bottom_left}>
                       <img
@@ -95,7 +121,7 @@ const JobList = ({ data, saved, limit = 0, title = "" }) => {
                       </span>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -119,8 +145,8 @@ const JobList = ({ data, saved, limit = 0, title = "" }) => {
           <div className={`container ${styles.j_container}`}>
             <div className={styles.j_items_container}>
               {data.map((item, index) => (
-                <Link
-                  href={`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item._id}`}
+                <div
+                  // href={`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item._id}`}
                   className={styles.j_item}
                   key={index}
                 >
@@ -136,15 +162,29 @@ const JobList = ({ data, saved, limit = 0, title = "" }) => {
                     </div>
                     <div>
                       {isVacancySaved(item._id) && (
-                        <FaStar className={styles.star_icon} color="orange" />
+                        <FaStar
+                          onClick={() => unsaveVacancy(item._id)}
+                          className={styles.star_icon}
+                          color="orange"
+                        />
                       )}
+
                       {!isVacancySaved(item._id) && (
-                        <FaRegStar className={styles.star_icon} color="grey" />
+                        <FaRegStar
+                          onClick={() => saveVacancy(item._id)}
+                          className={styles.star_icon}
+                          color="grey"
+                        />
                       )}
                     </div>
                   </div>
                   {/* Bottom Section */}
-                  <div className={styles.j_bottom}>
+                  <div
+                    className={styles.j_bottom}
+                    onClick={() =>
+                      router.push(`${ROUTES.INDIVIDUAL.ALL_JOBS}/${item._id}`)
+                    }
+                  >
                     {/* Left Section */}
                     <div className={styles.j_bottom_left}>
                       <img
@@ -175,7 +215,7 @@ const JobList = ({ data, saved, limit = 0, title = "" }) => {
                       </span>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
