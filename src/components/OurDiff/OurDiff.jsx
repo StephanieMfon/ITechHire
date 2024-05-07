@@ -30,7 +30,7 @@ const OurDiff = () => {
               variants={titleVariants}
               className="title"
             >
-              Fair Capital, Hassle Free
+              Streamlined HR Solutions
             </motion.span>
             <motion.span
               initial="offscreen"
@@ -38,10 +38,11 @@ const OurDiff = () => {
               variants={desVariants}
               className={`text ${styles.text}`}
             >
-              Our mission is to level the playing field for early stage growth
-              capital. <br />
-              We provide capital that is unbiased, flexible and non dilutive
-              with the execution support to accelerate value creation.
+              Our mission is to revolutionize HR management. <br />
+              We offer comprehensive HR solutions that streamline processes,{" "}
+              <br />
+              enhance employee engagement, and drive organizational success.{" "}
+              <br />
             </motion.span>
           </div>
 

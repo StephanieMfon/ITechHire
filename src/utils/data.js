@@ -38,63 +38,61 @@ export const HeroData = [
 export const features = [
   {
     icon: "/features/Frame-0.png",
-    title: "3x monthly revenue",
+    title: "Easy job applications",
   },
   {
     icon: "/features/Frame-1.png",
-    title: "Flat fee of 6-12%",
+    title: "0% Fees",
   },
   {
     icon: "/features/Frame-2.png",
-    title: "Flexible repayments by revenue share",
+    title: "Save applications for later",
   },
   {
     icon: "/features/Frame-3.png",
-    title: "3-4 years repayment",
+    title: "Staff Inventory",
   },
   {
     icon: "/features/Frame-4.png",
-    title: "$10-100k seed investment",
+    title: "Unlimited addition of job listings",
   },
   {
     icon: "/features/Frame-5.png",
-    title: "2% of revenue up to 3X cap",
+    title: "Task tracking",
   },
 ];
-
 export const ourDiffFeatures = [
   {
     icon: "/OurDiff/Frame-0.png",
-    title: "Data Driven",
-    des: "Our mission is to level the playing field for early stage growth capital. We provide capital that is unbiased, flexible and non dilutive with the execution support to accelerate value creation",
+    title: "Task Tracking",
+    des: "Efficiently monitor and manage tasks with our data-driven approach. We streamline HR processes to ensure tasks are tracked and completed effectively.",
   },
   {
     icon: "/OurDiff/Frame-1.png",
-    title: "flexible funding",
-    des: "Funding that flexes as revenue grows with transparent costs and does not require dilution, personal guarantees or pitch decks",
+    title: "Employee Directory",
+    des: "Centralize employee information with our flexible system. Easily access employee profiles, contact details, and more for seamless HR management.",
   },
   {
     icon: "/OurDiff/Frame-2.png",
-    title: "value accelerating",
-    des: "On demand expertise to supercharge growth in areas that are hard to access for early stage founders",
+    title: "Creating Job Vacancies",
+    des: "Simplify job vacancy creation with our value-accelerating platform. Get support in crafting compelling job postings to attract top talent and drive organizational growth.",
   },
 ];
-
 export const hitFeatures = [
   {
     icon: "/howItWorks/Frame-0.png",
-    title: "Connect",
-    des: "Register and qualify for funding in less than 5 mins. Connect revenue and marketing platforms you already use.",
+    title: "Efficient Task Tracking",
+    des: "Streamline task tracking for HR processes. Register and easily monitor progress on HR-related tasks in under 5 minutes.",
   },
   {
     icon: "/howItWorks/Frame-1.png",
-    title: "Get Funded",
-    des: "Get a term sheet with upto 3 funding offers. Select option that best suits and complete onboarding to receive funds in days",
+    title: "Simplified Employee Directory",
+    des: "Create a comprehensive employee directory effortlessly. Get organized with employee profiles and contact information ready in minutes.",
   },
   {
     icon: "/howItWorks/Frame-2.png",
-    title: "Support Growth",
-    des: "Access curated feed of actionable insights and on demand execution expertise. Auto qualify for follow on funding as you grow",
+    title: "Seamless Job Vacancy Creation",
+    des: "Simplify job vacancy creation for HR. Access support to craft enticing job postings and attract top talent swiftly.",
   },
 ];
 

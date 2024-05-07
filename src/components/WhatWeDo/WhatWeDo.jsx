@@ -141,21 +141,21 @@ const WhatWeDo = () => {
             <div>
               <span className="sec_title">Blue Growth Support</span>
               <span className="des">
-                Data Insights and full stack expertise to supercharge growth
+                Employee performance and task tracking to supercharge growth
               </span>
             </div>
 
             {/* Right side */}
             <div>
               <span className="text">
-                Actionable data insights by connecting revenue, marketing and
-                social media platforms
+                Leverage our expertise across proposition design, talent
+                management, analytics to boost ROI
               </span>
               <span className="text">
-                On demand execution expertise at cost or revenue share across
-                proposition design, engineering, marketing analytics,
-                partnerships, brand, intellectual property, market expansion,
-                talent management
+                Unlock the full potential of your workforce with our HR
+                management platform. Gain actionable insights by connecting HR
+                data with performance metrics, employee engagement, and talent
+                acquisition strategies.
               </span>
             </div>
           </motion.div>
