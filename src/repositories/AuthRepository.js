@@ -29,8 +29,10 @@ class AuthRepository {
       const payload = await axios.post(`${this.BASE_URL}/talent/create`, data, {
         headers,
       });
+      console.log(payload);
       return payload;
     } catch (e) {
+      console.log(e);
       return e;
     }
   }
