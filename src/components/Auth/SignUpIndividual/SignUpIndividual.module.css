@@ -87,6 +87,10 @@
 .loading {
   width: 40px;
 }
+.submit_button {
+  margin: 10px auto 0 auto;
+  display: block;
+}
 @media (max-width: 1024px) {
   .hero_wrapper {
     height: max-content;

@@ -6,8 +6,10 @@ import styles from "./SignUpIndividual.module.css";
 import { motion } from "framer-motion";
 import { ROUTES } from "../../../utils/ROUTES";
 import { Input } from "../../FormComponent/input";
-import { Error } from "../../FormComponent/error";
 import Link from "next/link";
+import { useState } from "react";
+import { useSession } from "next-auth/react";
+import GoogleLoginButton from "../../Buttons/GoogleLoginButton";
 
 const SignUpIndividual = ({
   handleSubmit,
@@ -30,6 +32,22 @@ const SignUpIndividual = ({
       },
     },
   });
+
+  const { data: session } = useSession();
+  console.log(session);
+
+  if (session && session.user) {
+    if (session.user.email) {
+      localStorage.setItem("email", session.user.email);
+    }
+
+    if (session.authToken) {
+      localStorage.setItem("access_token", session.authToken);
+    }
+
+    router.push(ROUTES.INDIVIDUAL.MAIN);
+  }
+
   return (
     <div className={styles.hero_container}>
       {/* Left Side */}
@@ -54,11 +72,13 @@ const SignUpIndividual = ({
 
       {/* Right side */}
       <div className={styles.hero_right}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.form}>
           <h1 className={`title ${styles.header}`} data-cy="signup-page-1-text">
             Create new account
           </h1>
-          <div className={styles.inputs}>
+          {!session?.user && <GoogleLoginButton />}
+
+          <form className={styles.inputs} onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="first_name"
               control={control}
@@ -127,7 +147,23 @@ const SignUpIndividual = ({
                 );
               }}
             />
-          </div>
+
+            <button
+              className={`button ${styles.submit_button} ${
+                loading && styles.loading_img
+              }`}
+              type="submit"
+            >
+              {!loading && <span>Submit</span>}
+              {loading && (
+                <img
+                  src="/loading.svg"
+                  className={styles.loading}
+                  alt="Loading"
+                />
+              )}
+            </button>
+          </form>
           <p className={styles.text}>
             Already have an account?&nbsp;
             <Link
@@ -138,21 +174,7 @@ const SignUpIndividual = ({
               Sign in
             </Link>{" "}
           </p>
-
-          <button
-            className={`button ${loading && styles.loading_img}`}
-            type="submit"
-          >
-            {!loading && <span>Submit</span>}
-            {loading && (
-              <img
-                src="/loading.svg"
-                className={styles.loading}
-                alt="Loading"
-              />
-            )}
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import { ROUTES } from "../../../utils/ROUTES";
 import Link from "next/link";
 import { signUpCompanyData, signUpIndividualData } from "../../../utils/data";
 import { useState } from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const SignUp = () => {
   const [scene, setScene] = useState("signInIndividual");

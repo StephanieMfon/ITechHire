@@ -9,14 +9,17 @@ import { useRouter, useSelectedLayoutSegment } from "next/navigation";
 import { IoMdLogOut } from "react-icons/io";
 import { IoIosArrowDropright } from "react-icons/io";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
+import { signOut } from "next-auth/react";
 
 const Sidebar = ({ children }) => {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
-  function logout() {
+  const handleLogout = async () => {
+    // Clear localStorage token first
     localStorage.removeItem("access_token");
-    router.push(ROUTES.LOGIN);
-  }
+
+    await signOut({ callbackUrl: ROUTES.LOGIN });
+  };
 
   const router = useRouter();
   const active_page = useSelectedLayoutSegment();
@@ -70,7 +73,7 @@ const Sidebar = ({ children }) => {
             }
           )}
 
-          <div className={`${styles.menu_item}`} onClick={() => logout()}>
+          <div className={`${styles.menu_item}`} onClick={() => handleLogout()}>
             <span>
               <IoMdLogOut />
             </span>
@@ -109,7 +112,7 @@ const Sidebar = ({ children }) => {
           }
         )}
 
-        <div className={`${styles.menu_item}`} onClick={() => logout()}>
+        <div className={`${styles.menu_item}`} onClick={() => handleLogout()}>
           <p>Logout</p>
           <span>
             <IoMdLogOut />

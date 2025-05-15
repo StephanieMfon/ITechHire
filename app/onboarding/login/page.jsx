@@ -46,7 +46,7 @@ const LoginPage = () => {
           type: "success",
           message: "Individual Login Successful!",
         });
-        localStorage.setItem("email", response.data.user.email);
+        localStorage.setItem("email", response.data.email);
         localStorage.setItem("access_token", response.data.access_token);
         router.push(ROUTES.INDIVIDUAL.MAIN);
       } else if (companyResponse.status === 200) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
 import styles from "./Login.module.css";
 import { motion } from "framer-motion";
@@ -9,6 +9,10 @@ import { ROUTES } from "../../../utils/ROUTES";
 import { Input } from "../../FormComponent/input";
 
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import GoogleLoginButton from "../../Buttons/GoogleLoginButton";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const Login = ({ handleSubmit, onSubmit, control, errors, loading }) => {
   const imgVariants = () => ({
@@ -24,51 +28,157 @@ const Login = ({ handleSubmit, onSubmit, control, errors, loading }) => {
       },
     },
   });
+  const [scene, setScene] = useState("signInIndividual");
+
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  console.log(session);
+
+  if (session && session.user) {
+    // Store information only if we have a valid session and user
+
+    if (session.user.email) {
+      localStorage.setItem("email", session.user.email);
+    }
+
+    if (session.authToken) {
+      localStorage.setItem("access_token", session.authToken);
+    }
+
+    // router.push(ROUTES.INDIVIDUAL.MAIN);
+  }
   return (
     <div className={styles.hero_container}>
       {/* Right side */}
       <div className={styles.hero_right}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.form}>
           <h1 className={`title ${styles.header}`} data-cy="signup-page-1-text">
             Welcome back
           </h1>
-          <div className={styles.inputs}>
-            <Controller
-              name="email"
-              control={control}
-              defaultValue=""
-              // rules={{ required: "Email is required" }}
-              render={({ field }) => {
-                return (
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Email Address"
-                    error={errors.email?.message}
-                    field={field}
-                  ></Input>
-                );
-              }}
-            />
-
-            <Controller
-              name="password"
-              control={control}
-              defaultValue=""
-              // rules={{ required: "Password is required" }}
-              render={({ field }) => {
-                return (
-                  <Input
-                    id="password"
-                    placeholder="Password"
-                    error={errors.password?.message}
-                    field={field}
-                    type="password"
-                  ></Input>
-                );
-              }}
-            />
+          <div className={styles.oauth_buttons}>
+            {!session?.user && <GoogleLoginButton text={"Company sign in "} />}
+            {!session?.user && <GoogleLoginButton text={"Talent sign in "} />}
           </div>
+
+          {/* scene buttons */}
+          <div className={styles.scene_buttons}>
+            <button
+              className={`${styles.scene_button} ${
+                scene === "signInCompany" ? styles.active_scene : ""
+              }`}
+              onClick={() => setScene("signInCompany")}
+            >
+              Company
+            </button>
+
+            <button
+              className={`${styles.scene_button} ${
+                scene === "signInIndividual" ? styles.active_scene : ""
+              }`}
+              onClick={() => setScene("signInIndividual")}
+            >
+              Talent
+            </button>
+          </div>
+
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {scene === "signInIndividual" ? (
+              <div className={styles.inputs}>
+                <Controller
+                  name="email"
+                  control={control}
+                  defaultValue=""
+                  // rules={{ required: "Email is required" }}
+                  render={({ field }) => {
+                    return (
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Email Address"
+                        error={errors.email?.message}
+                        field={field}
+                      ></Input>
+                    );
+                  }}
+                />
+
+                <Controller
+                  name="password"
+                  control={control}
+                  defaultValue=""
+                  // rules={{ required: "Password is required" }}
+                  render={({ field }) => {
+                    return (
+                      <Input
+                        id="password"
+                        placeholder="Password"
+                        error={errors.password?.message}
+                        field={field}
+                        type="password"
+                      ></Input>
+                    );
+                  }}
+                />
+              </div>
+            ) : (
+              <div className={styles.inputs}>
+                <Controller
+                  name="email"
+                  control={control}
+                  defaultValue=""
+                  // rules={{ required: "Email is required" }}
+                  render={({ field }) => {
+                    return (
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Company Email"
+                        error={errors.email?.message}
+                        field={field}
+                      ></Input>
+                    );
+                  }}
+                />
+
+                <Controller
+                  name="password"
+                  control={control}
+                  defaultValue=""
+                  // rules={{ required: "Password is required" }}
+                  render={({ field }) => {
+                    return (
+                      <Input
+                        id="password"
+                        placeholder="Password"
+                        error={errors.password?.message}
+                        field={field}
+                        type="password"
+                      ></Input>
+                    );
+                  }}
+                />
+              </div>
+            )}
+
+            {/* <div className="button_wrap"> */}
+            <button
+              className={`button ${styles.submit_button} ${
+                loading && styles.loading_img
+              }`}
+              type="submit"
+            >
+              {!loading && <span>Submit</span>}
+              {loading && (
+                <img
+                  src="/loading.svg"
+                  className={styles.loading}
+                  alt="Loading"
+                />
+              )}
+            </button>
+            {/* </div> */}
+          </form>
           <p className={styles.text}>
             Not yet registered?&nbsp;
             <Link
@@ -79,20 +189,7 @@ const Login = ({ handleSubmit, onSubmit, control, errors, loading }) => {
               Sign up
             </Link>{" "}
           </p>
-          <button
-            className={`button ${loading && styles.loading_img}`}
-            type="submit"
-          >
-            {!loading && <span>Submit</span>}
-            {loading && (
-              <img
-                src="/loading.svg"
-                className={styles.loading}
-                alt="Loading"
-              />
-            )}
-          </button>
-        </form>
+        </div>
       </div>
 
       {/* Left Side */}

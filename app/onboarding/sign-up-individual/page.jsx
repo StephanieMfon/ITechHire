@@ -15,12 +15,14 @@ const SignUpIndividual = dynamic(
     ssr: false,
   }
 );
+
 const defaultValues = {
   firstname: "",
   lastname: "",
   email: "",
   password: "",
 };
+
 const SignUpIndividualPage = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -54,9 +56,15 @@ const SignUpIndividualPage = () => {
         message: "Registration Successful!",
       });
 
-      router.push(ROUTES.LOGIN);
+      localStorage.setItem("email", response.data.user.email);
+      localStorage.setItem("access_token", response.data.access_token);
+
+      router.push(ROUTES.INDIVIDUAL.MAIN);
+
+      // router.push(ROUTES.LOGIN);
     }
   };
+
   return (
     <SignUpIndividual
       handleSubmit={handleSubmit}
@@ -67,4 +75,5 @@ const SignUpIndividualPage = () => {
     />
   );
 };
+
 export default SignUpIndividualPage;

@@ -45,7 +45,8 @@ class TaskRepository {
 
   async get_all() {
     console.log("DEBUG: making a GET request to /task");
-
+    const token = localStorage.getItem("access_token");
+    console.log("DEBUG: token", token);
     try {
       const payload = await TaskInstance.get(`${this.BASE_URL}/task`, {
         headers: this.HEADERS,

@@ -3,6 +3,7 @@ import { Josefin_Sans } from "next/font/google";
 import Head from "next/head";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { SessProvider } from "../src/utils/ClientWrapper";
 
 const Josef = Josefin_Sans({
   subsets: ["latin"],
@@ -30,7 +31,9 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </Head>
-      <body className={Josef.className}>{children}</body>
+      <body className={Josef.className}>
+        <SessProvider>{children}</SessProvider>
+      </body>
     </html>
   );
 }

@@ -8,14 +8,17 @@ import { Dropdown, Menu } from "antd";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export default function Nav() {
   const router = useRouter();
 
-  function logout() {
+  const handleLogout = async () => {
+    // Clear localStorage token first
     localStorage.removeItem("access_token");
-    router.push(ROUTES.LOGIN);
-  }
+
+    await signOut({ callbackUrl: ROUTES.LOGIN });
+  };
   const menu = (
     <Menu>
       <Menu.Item key="1">
@@ -29,7 +32,7 @@ export default function Nav() {
       </Menu.Item>
       <div className={styles.line}></div>
       <Menu.Item key="2" className={styles.drop_item}>
-        <div onClick={() => logout()} className={styles.drop_item}>
+        <div onClick={() => handleLogout()} className={styles.drop_item}>
           <IoLogOutOutline />
           Logout
         </div>
